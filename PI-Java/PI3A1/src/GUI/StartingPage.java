@@ -27,7 +27,7 @@ public class StartingPage extends Application {
        Parent root = FXMLLoader.load(getClass().getResource("AjoutVoiture.fxml"));
       
             
-        Scene scene = new Scene(root, 300, 250);
+        Scene scene = new Scene(root, 600, 600);
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         primaryStage.show();
