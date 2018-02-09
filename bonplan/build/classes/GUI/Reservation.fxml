@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ReservationController">
+   <children>
+      <Text layoutX="315.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Réservation" textAlignment="CENTER">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <DatePicker fx:id="dateEntree" layoutX="141.0" layoutY="94.0" promptText="Date d'entrée" />
+      <DatePicker fx:id="DateSortie" layoutX="454.0" layoutY="94.0" promptText="date de sortie" />
+      <Button fx:id="Reserver" layoutX="527.0" layoutY="343.0" mnemonicParsing="false" onAction="#AjouterReservation" style="-fx-background-color: #48A5EA;" text="Réserver" />
+      <TextField fx:id="NbrPlaces" layoutX="141.0" layoutY="156.0" prefHeight="25.0" prefWidth="174.0" promptText="nombre de places à reserver" />
+      <TextField fx:id="Type" layoutX="141.0" layoutY="230.0" prefHeight="25.0" prefWidth="174.0" promptText="type de la réservation" />
+      <Pane layoutX="-2.0" layoutY="-2.0" prefHeight="408.0" prefWidth="137.0" style="-fx-background-color: #48A5EA;" />
+      <ImageView fitHeight="83.0" fitWidth="165.0" layoutX="471.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Reservationimg.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
