@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ListeAvisController">
+   <children>
+      <TableView fx:id="personsTable" layoutX="33.0" layoutY="31.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="Commentaire" prefWidth="146.0" text="Les Commentaires" />
+        </columns>
+      </TableView>
+      <Button fx:id="Supprimer" layoutX="448.0" layoutY="56.0" mnemonicParsing="false" onAction="#ButtonSupprimer" text="Supprimer" />
+      <TextField fx:id="SuppField" layoutX="402.0" layoutY="56.0" prefHeight="25.0" prefWidth="40.0" />
+      <Button fx:id="Modifier" layoutX="405.0" layoutY="106.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="25.0" prefWidth="131.0" text="Modifier mon Avis" />
+      <TextField fx:id="ModiferId" layoutX="355.0" layoutY="106.0" prefHeight="25.0" prefWidth="40.0" />
+      <TextField fx:id="CommentaireField" layoutX="346.0" layoutY="263.0" opacity="0.74" prefHeight="95.0" prefWidth="228.0" />
+      <TextField fx:id="AvisText" layoutX="378.0" layoutY="148.0" />
+      <Label layoutX="348.0" layoutY="153.0" text="Avis" />
+      <Label layoutX="345.0" layoutY="179.0" text="Note Cuisine" />
+      <Slider fx:id="NoteCuisineSlider" layoutX="417.0" layoutY="181.0" max="10.0" min="1.0" showTickLabels="true" />
+      <Label layoutX="346.0" layoutY="200.0" text="Note Rapport" />
+      <Label layoutX="346.0" layoutY="220.0" text="Note Service" />
+      <Label layoutX="346.0" layoutY="242.0" text="Note Ambiance" />
+      <Slider fx:id="NoteRapportSlider" layoutX="419.0" layoutY="201.0" max="10.0" min="1.0" showTickLabels="true" />
+      <Slider fx:id="NoteServiceSlider" layoutX="429.0" layoutY="222.0" max="10.0" showTickLabels="true" />
+      <Slider fx:id="NoteAmbianceSlider" layoutX="434.0" layoutY="245.0" />
+   </children>
+</AnchorPane>
