@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ModifierEventController">
+   <children>
+      <Label layoutX="36.0" layoutY="134.0" prefHeight="17.0" prefWidth="91.0" text="Id personne" />
+      <TextField fx:id="idpersonne" layoutX="129.0" layoutY="130.0" prefHeight="25.0" prefWidth="68.0" />
+      <Label layoutX="36.0" layoutY="176.0" prefHeight="17.0" prefWidth="68.0" text="Id Event" />
+      <Label layoutX="36.0" layoutY="214.0" prefHeight="17.0" prefWidth="68.0" text="Titre " />
+      <Label layoutX="36.0" layoutY="267.0" prefHeight="17.0" prefWidth="91.0" text="Description" />
+      <Label layoutX="32.0" layoutY="349.0" prefHeight="17.0" prefWidth="76.0" text="Lieu" />
+      <Label layoutX="36.0" layoutY="401.0" prefHeight="17.0" prefWidth="68.0" text="Image" />
+      <Label layoutX="288.0" layoutY="142.0" prefHeight="17.0" prefWidth="76.0" text="Date" />
+      <Label layoutX="288.0" layoutY="193.0" prefHeight="17.0" prefWidth="76.0" text="Date debut" />
+      <Label layoutX="288.0" layoutY="235.0" prefHeight="17.0" prefWidth="76.0" text="Date Fin" />
+      <Label layoutX="288.0" layoutY="275.0" prefHeight="17.0" prefWidth="61.0" text="Prix" />
+      <Label layoutX="288.0" layoutY="312.0" prefHeight="25.0" prefWidth="105.0" text="Nombre de place" />
+      <Label layoutX="288.0" layoutY="361.0" prefHeight="17.0" prefWidth="76.0" text="Type" />
+      <DatePicker fx:id="date" layoutX="378.0" layoutY="142.0" />
+      <DatePicker fx:id="date_debut" layoutX="378.0" layoutY="189.0" />
+      <DatePicker fx:id="date_fin" layoutX="378.0" layoutY="231.0" />
+      <TextField fx:id="idEvent" layoutX="104.0" layoutY="172.0" />
+      <TextField fx:id="titre" layoutX="104.0" layoutY="210.0" />
+      <TextArea fx:id="description" layoutX="100.0" layoutY="260.0" prefHeight="64.0" prefWidth="149.0" />
+      <TextField fx:id="lieu" layoutX="100.0" layoutY="345.0" />
+      <Button fx:id="imagebrowse" layoutX="108.0" layoutY="397.0" mnemonicParsing="false" onAction="#browse" text="Browse" />
+      <TextField fx:id="prix" layoutX="378.0" layoutY="279.0" />
+      <TextField fx:id="nbplace" layoutX="391.0" layoutY="312.0" />
+      <TextField fx:id="type" layoutX="341.0" layoutY="357.0" />
+      <Button fx:id="updateEvent" layoutX="501.0" layoutY="422.0" mnemonicParsing="false" onAction="#updateEvent" prefHeight="25.0" prefWidth="68.0" text="Update" />
+      <ListView fx:id="imagetelecharger" layoutX="219.0" layoutY="381.0" prefHeight="57.0" prefWidth="84.0" />
+      <Pane fx:id="paneImage" layoutX="82.0" layoutY="447.0" prefHeight="105.0" prefWidth="140.0" />
+      <ImageView fx:id="ImageView" fitHeight="94.0" fitWidth="140.0" layoutX="279.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="490.0" layoutY="500.0" mnemonicParsing="false" onAction="#returnn" text="return" />
+   </children>
+</AnchorPane>
