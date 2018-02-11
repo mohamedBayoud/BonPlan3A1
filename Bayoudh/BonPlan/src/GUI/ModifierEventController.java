@@ -131,12 +131,11 @@ public class ModifierEventController implements Initializable {
         int y = Integer.parseInt(t);
         
        Date  d1 = java.sql.Date.valueOf(date.getValue());
-       Date  d3 = java.sql.Date.valueOf(date_fin.getValue());
-       Date  d2 = java.sql.Date.valueOf(date_debut.getValue());
+      
         
         Evenement e1;
         //e1 = new Evenement(y, r, t, b, t, d, e, t);
-       e1 = new Evenement(r,y,description.getText(),b,titre.getText(),d,lieu.getText(),type.getText(),d1,d2,d3);
+       e1 = new Evenement(r,y,description.getText(),b,titre.getText(),d,lieu.getText(),type.getText(),d1);
         e1.setImage(selectedfile.getName());
        
        if (e1.getImage().equals(selectedfile.getName()))

@@ -7,6 +7,10 @@ package GUI;
 
 import Entites.Evenement;
 import Services.ServiceEvent;
+import Services.Upload;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -33,6 +37,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -42,6 +47,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -51,6 +58,9 @@ import javafx.stage.Stage;
  */
 public class AffichageController implements Initializable {
 
+    File selectedfile;
+    String path_img;
+    Upload u = new Upload();
     public ArrayList<Evenement> ran;
     private Image image;
     @FXML
@@ -67,10 +77,6 @@ public class AffichageController implements Initializable {
     private TableColumn<?, ?> imageC;
     @FXML
     private TableColumn<?, ?> dateC;
-    @FXML
-    private TableColumn<?, ?> date_debutC;
-    @FXML
-    private TableColumn<?, ?> date_finC;
     @FXML
     private TableColumn<?, ?> prixC;
     @FXML
@@ -94,6 +100,24 @@ public class AffichageController implements Initializable {
     private Button supprimeEvent;
     @FXML
     private Button modifierEvent;
+    @FXML
+    private TextField titre;
+    @FXML
+    private Button imagebrowse;
+    @FXML
+    private TextField prix;
+    @FXML
+    private TextField nbplace;
+    @FXML
+    private TextField type;
+    @FXML
+    private ListView<?> imagetelecharger;
+    @FXML
+    private TextField idpersonne;
+    @FXML
+    private Pane paneImage;
+    @FXML
+    private DatePicker dateaf;
 
     /**
      * Initializes the controller class.
@@ -156,8 +180,7 @@ public class AffichageController implements Initializable {
             lieuC.setCellValueFactory(new PropertyValueFactory<>("lieu"));
             imageC.setCellValueFactory(new PropertyValueFactory<>("image"));
             dateC.setCellValueFactory(new PropertyValueFactory<>("date"));
-            date_debutC.setCellValueFactory(new PropertyValueFactory<>("dateDebut"));
-            date_finC.setCellValueFactory(new PropertyValueFactory<>("dateFin"));
+
             prixC.setCellValueFactory(new PropertyValueFactory<>("prix"));
             nbplaceC.setCellValueFactory(new PropertyValueFactory<>("nbPlace"));
             typeC.setCellValueFactory(new PropertyValueFactory<>("type"));
@@ -174,11 +197,19 @@ public class AffichageController implements Initializable {
     private void CLicked(MouseEvent event) {
         Evenement ev = tableView.getItems().get(tableView.getSelectionModel().getSelectedIndex());
         // id_text.setText(ran.getType());
+        String IdEvent = Integer.toString(ev.getIdEvent());
+        String idpers = Integer.toString(ev.getIdPersonne());
+        String nbp = Integer.toString(ev.getNbPlace());
+        String prx = Float.toString(ev.getPrix());
+        String date = ev.getDate().toString();
         description_txt.setText(ev.getDescription());
         lieu_txt.setText(ev.getLieu());
-        String date = ev.getDate().toString();
+        idpersonne.setText(idpers);
         date_txt.setText(date);
-        String IdEvent = Integer.toString(ev.getIdEvent());
+        prix.setText(prx);
+        nbplace.setText(nbp);
+        titre.setText(ev.getTitre());
+        type.setText(ev.getType());
         id_text.setText(IdEvent);
         Image a1 = new Image("http://localhost/Image/" + ev.getImage());
         System.out.println("------------------------------");
@@ -209,37 +240,74 @@ public class AffichageController implements Initializable {
     }
 
     @FXML
-    private void ModifierEvent(ActionEvent event) {
-        Evenement e = new Evenement();
-        e = tableView.getItems().get(tableView.getSelectionModel().getSelectedIndex());
-
-        try {
-            Parent page1 = FXMLLoader.load(getClass().getResource("ModifierEvent.fxml"));
-            Scene scene = new Scene(page1);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(AffichageController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    private void ModifierEvent(ActionEvent event) throws SQLException, IOException {
+    ServiceEvent sv = new ServiceEvent();
+        String i = nbplace.getText();
+        int b = Integer.parseInt(i);
+        String j = prix.getText();
+        float d = Float.parseFloat(j);
+        String e = id_text.getText();
+        int r = Integer.parseInt(e);
+        String t = idpersonne.getText();
+        int y = Integer.parseInt(t);
+        
+       Date  d1 = java.sql.Date.valueOf(dateaf.getValue());
+      
+        
+        Evenement e1;
+       e1 = new Evenement(r,y,description_txt.getText(),b,titre.getText(),d,lieu_txt.getText(),type.getText(),d1);
+        e1.setImage(selectedfile.getName());
+       
+       if (e1.getImage().equals(selectedfile.getName()))
+         sv.ModifierEvent(e1, r);  
+      
     }
 
     @FXML
     private void DatePicker(ActionEvent event) throws SQLException {
-/*List<Evenement> ev = new ArrayList<>();
+        /*List<Evenement> ev = new ArrayList<>();
  ServiceEvent sv = new ServiceEvent();
         Date d= java.sql.Date.valueOf(DatePicker.getValue());
        ev= sv.chercher(d);*/
-afficherEvenement();
+        afficherEvenement();
     }
 
     @FXML
     private void returnnbut(ActionEvent event) throws IOException {
-         Parent page1 = FXMLLoader.load(getClass().getResource("Acceuil.fxml"));
-            Scene scene = new Scene(page1);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
+        Parent page1 = FXMLLoader.load(getClass().getResource("Acceuil.fxml"));
+        Scene scene = new Scene(page1);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void browse(ActionEvent event) throws FileNotFoundException, IOException {
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image", "*.jpg", "*.png")
+        );
+        selectedfile = fc.showOpenDialog(null);
+        if (selectedfile != null) {
+            System.out.println(selectedfile.getName());
+            FileInputStream inp = new FileInputStream(selectedfile.getPath());
+            System.out.println(selectedfile.getName());
+            ImageView a = new ImageView(new Image(inp));
+            a.setFitHeight(150);
+            a.setFitWidth(100);
+
+            paneImage.getChildren().add(a);
+
+            path_img = selectedfile.getAbsolutePath();
+
+            if (selectedfile.isFile()) {
+                u.upload(selectedfile);
+            }
+            System.out.println("sssssssssssssssss");
+        } else {
+            System.out.println("FICHIER erroné");
+        }
+
     }
 
 }

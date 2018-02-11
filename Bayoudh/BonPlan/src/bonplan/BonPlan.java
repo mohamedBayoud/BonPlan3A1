@@ -24,9 +24,9 @@ public class BonPlan {
      */
     public static void main(String[] args) {
        Evenement E1;
-        E1 = new Evenement(1882, 1, "MC8angou", 2, "kdkdd", 12, "bjkn", "bjk", "uikl", new Date(2018 - 1900, 2 - 1, 8), new Date(2018 - 1900, 2 - 1, 8), new Date(2018 - 1900, 2 - 1, 8));
+        E1 = new Evenement(1882, 1, "MC8angou", 2, "kdkdd", 12, "bjkn", "bjk", "uikl", new Date(2018 - 1900, 2 - 1, 8));
         Evenement E2;
-        E2 = new Evenement(182, 2, "llll", 2, "hk", 12, "pooiuyyy", "tyddytt", "yftiti", new Date(2018 - 1900, 2 - 1, 8), new Date(2018 - 1900, 2 - 1, 8), new Date(2018 - 1900, 2 - 1, 8));
+        E2 = new Evenement(182, 2, "llll", 2, "hk", 12, "pooiuyyy", "tyddytt", "yftiti",  new Date(2018 - 1900, 2 - 1, 8));
         Evenement E3;
 
         int c;
@@ -69,7 +69,7 @@ public class BonPlan {
             } else {
                 try {
 
-                    sv.ModifierEvent(new Evenement(15855582, 2, "sport", 2, "lezem", 12, "okk", "edddd", "ferfer", new Date(2018 - 1900, 2 - 1, 8), new Date(2018 - 1900, 2 - 1, 8), new Date(2018 - 1900, 2 - 1, 8)),1882);
+                    sv.ModifierEvent(new Evenement(15855582, 2, "sport", 2, "lezem", 12, "okk", "edddd", "ferfer", new Date(2018 - 1900, 2 - 1, 8)),1882);
                 } catch (SQLException ex) {
                     Logger.getLogger(Evenement.class.getName()).log(Level.SEVERE, null, ex);
                 }

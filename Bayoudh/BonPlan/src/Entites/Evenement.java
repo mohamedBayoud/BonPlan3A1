@@ -24,13 +24,12 @@ public class Evenement {
     private String image;
     private String type;
     private Date date;
-    private Date dateDebut;
-    private Date dateFin;
+    
 
     public Evenement() {
     }
 
-    public Evenement(int IdEvent, int IdPersonne, String description, int nbPlace, String titre, float prix, String lieu, String type, Date date, Date dateDebut, Date dateFin) {
+    public Evenement(int IdEvent, int IdPersonne, String description, int nbPlace, String titre, float prix, String lieu, String type, Date date) {
         this.IdEvent = IdEvent;
         this.IdPersonne = IdPersonne;
         this.description = description;
@@ -40,11 +39,10 @@ public class Evenement {
         this.lieu = lieu;
         this.type = type;
         this.date = date;
-        this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
+       
     }
 
-    public Evenement(int IdEvent, int IdPersonne, String description, int nbPlace, String titre, float prix, String lieu, String image, String type, Date date, Date dateDebut, Date dateFin) {
+    public Evenement(int IdEvent, int IdPersonne, String description, int nbPlace, String titre, float prix, String lieu, String image, String type, Date date) {
         this.IdEvent = IdEvent;
         this.IdPersonne = IdPersonne;
         this.description = description;
@@ -55,10 +53,21 @@ public class Evenement {
         this.image = image;
         this.type = type;
         this.date = date;
-        this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
+     
     }
-
+public Evenement(int IdEvent, int IdPersonne, String description, int nbPlace, String titre, float prix, String lieu, String image, String type) {
+        this.IdEvent = IdEvent;
+        this.IdPersonne = IdPersonne;
+        this.description = description;
+        this.nbPlace = nbPlace;
+        this.titre = titre;
+        this.prix = prix;
+        this.lieu = lieu;
+        this.image = image;
+        this.type = type;
+       
+     
+    }
     public Evenement(int IdEvent, int IdPersonne, String description, int nbPlace, String titre, float prix, String lieu, String type) {
         this.IdEvent = IdEvent;
         this.IdPersonne = IdPersonne;
@@ -70,9 +79,6 @@ public class Evenement {
         this.type = type;
     }
 
-    public Evenement(Date date) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 
    
@@ -118,13 +124,6 @@ public class Evenement {
         return date;
     }
 
-    public Date getDateDebut() {
-        return dateDebut;
-    }
-
-    public Date getDateFin() {
-        return dateFin;
-    }
 
     public void setIdEvent(int IdEvent) {
         this.IdEvent = IdEvent;
@@ -166,14 +165,7 @@ public class Evenement {
         this.date = date;
     }
 
-    public void setDateDebut(Date dateDebut) {
-        this.dateDebut = dateDebut;
-    }
-
-    public void setDateFin(Date dateFin) {
-        this.dateFin = dateFin;
-    }
-
+   
     @Override
     public int hashCode() {
         int hash = 3;
@@ -187,8 +179,7 @@ public class Evenement {
         hash = 71 * hash + Objects.hashCode(this.image);
         hash = 71 * hash + Objects.hashCode(this.type);
         hash = 71 * hash + Objects.hashCode(this.date);
-        hash = 71 * hash + Objects.hashCode(this.dateDebut);
-        hash = 71 * hash + Objects.hashCode(this.dateFin);
+      
         return hash;
     }
 
@@ -234,18 +225,13 @@ public class Evenement {
         if (!Objects.equals(this.date, other.date)) {
             return false;
         }
-        if (!Objects.equals(this.dateDebut, other.dateDebut)) {
-            return false;
-        }
-        if (!Objects.equals(this.dateFin, other.dateFin)) {
-            return false;
-        }
+       
         return true;
     }
 
     @Override
     public String toString() {
-        return "Evenement{" + "IdEvent=" + IdEvent + ", IdPersonne=" + IdPersonne + ", description=" + description + ", nbPlace=" + nbPlace + ", titre=" + titre + ", prix=" + prix + ", lieu=" + lieu + ", image=" + image + ", type=" + type + ", date=" + date + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + '}';
+        return "Evenement{" + "IdEvent=" + IdEvent + ", IdPersonne=" + IdPersonne + ", description=" + description + ", nbPlace=" + nbPlace + ", titre=" + titre + ", prix=" + prix + ", lieu=" + lieu + ", image=" + image + ", type=" + type + ", date=" + date +  '}';
     }
 
 }

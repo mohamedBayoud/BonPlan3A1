@@ -42,20 +42,18 @@ public class ServiceEvent {
     public void AjouterEvent(Evenement E) throws SQLException {
         System.out.println("Veuillez Entrer les Donnees");
 
-        String req = "INSERT INTO `evenement`(`IdPersonne`, `idEvent`, `titre`, `description`, `lieu`, `image`, `date`, `dateDebut`, `dateFin`, `prix`, `nbPlace`, `type`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+        String req = "INSERT INTO `evenement`(`IdPersonne`, `idEvent`, `titre`, `description`, `lieu`, `image`, `date`, `prix`, `nbPlace`, `type`) VALUES (?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement pre = con.prepareStatement(req);
+         pre.setInt(1, E.getIdPersonne());
         pre.setInt(2, E.getIdEvent());
-        pre.setInt(1, E.getIdPersonne());
         pre.setString(3, E.getTitre());
         pre.setString(4, E.getDescription());
         pre.setString(5, E.getLieu());
         pre.setString(6, E.getImage());
         pre.setDate(7, E.getDate());
-        pre.setDate(8, E.getDateDebut());
-        pre.setDate(9, E.getDateFin());
-        pre.setFloat(10, E.getPrix());
-        pre.setInt(11, E.getNbPlace());
-        pre.setString(12, E.getType());
+        pre.setFloat(8, E.getPrix());
+        pre.setInt(9, E.getNbPlace());
+        pre.setString(10, E.getType());
         pre.executeUpdate();
         System.out.println("Evenement  Ajoutée");
 
@@ -73,7 +71,7 @@ public class ServiceEvent {
     public void ModifierEvent(Evenement E, int IdEvent) throws SQLException {
         Scanner sc = new Scanner(System.in);
 
-        String req = "UPDATE `evenement` SET `IdPersonne`=?,IdEvent=?,`titre`=?,`description`=?,`lieu`=?,`image`=?,`date`=?,`dateDebut`=?,`dateFin`=?,`prix`=?,`nbPlace`=?,`type`=?  WHERE IdEvent=?";
+        String req = "UPDATE `evenement` SET `IdPersonne`=?,`idEvent`=?,`titre`=?,`description`=?,`lieu`=?,`image`=?,`date`=?,`prix`=?,`nbPlace`=?,`type`=?   WHERE IdEvent=?";
         PreparedStatement pre = con.prepareStatement(req);
         pre.setInt(1, E.getIdPersonne());
         pre.setInt(2, E.getIdEvent());
@@ -82,12 +80,10 @@ public class ServiceEvent {
         pre.setString(5, E.getLieu());
         pre.setString(6, E.getImage());
         pre.setDate(7, E.getDate());
-        pre.setDate(8, E.getDateDebut());
-        pre.setDate(9, E.getDateFin());
-        pre.setFloat(10, E.getPrix());
-        pre.setInt(11, E.getNbPlace());
-        pre.setString(12, E.getType());
-        pre.setInt(13, IdEvent);
+        pre.setFloat(8, E.getPrix());
+        pre.setInt(9, E.getNbPlace());
+        pre.setString(10, E.getType());
+        pre.setInt(11, IdEvent);
         pre.executeUpdate();
 
         System.out.println("Event Modifie avec Succees");
@@ -101,7 +97,7 @@ public class ServiceEvent {
             ResultSet res;
             res = ste.executeQuery(req);
             while (res.next()) {
-                Evenement v1 = new Evenement(res.getInt("idEvent"), res.getInt("idPersonne"), res.getString("description"), res.getInt("nbPlace"), getString("titre"), res.getFloat("prix"), res.getString("lieu"), res.getString("image"), res.getString("type"), res.getDate("date"), res.getDate("dateDebut"), res.getDate("dateFin"));
+                Evenement v1 = new Evenement(res.getInt("idEvent"), res.getInt("idPersonne"), res.getString("description"), res.getInt("nbPlace"), getString("titre"), res.getFloat("prix"), res.getString("lieu"), res.getString("image"), res.getString("type"), res.getDate("date"));
                 list.add(v1);
               
             }
@@ -145,7 +141,7 @@ public class ServiceEvent {
             ResultSet res;
             res = ste.executeQuery(req);
             while (res.next()) {
-                Evenement v1 = new Evenement(res.getInt("idEvent"), res.getInt("idPersonne"), res.getString("description"), res.getInt("nbPlace"), getString("titre"), res.getFloat("prix"), res.getString("lieu"), res.getString("image"), res.getString("type"), res.getDate("date"), res.getDate("dateDebut"), res.getDate("dateFin"));
+                Evenement v1 = new Evenement(res.getInt("idEvent"), res.getInt("idPersonne"), res.getString("description"), res.getInt("nbPlace"), getString("titre"), res.getFloat("prix"), res.getString("lieu"), res.getString("image"), res.getString("type"), res.getDate("date"));
                 System.out.println(res.getString("lieu"));
                 list.add(v1);
             }

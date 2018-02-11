@@ -13,7 +13,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import ConnexionBd.DataSource;
 import Entites.User;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.util.Scanner;
 

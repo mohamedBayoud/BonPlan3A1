@@ -17,14 +17,10 @@
       <Label layoutX="37.0" layoutY="288.0" prefHeight="17.0" prefWidth="76.0" text="Lieu" />
       <Label layoutX="41.0" layoutY="340.0" prefHeight="17.0" prefWidth="68.0" text="Image" />
       <Label layoutX="293.0" layoutY="81.0" prefHeight="17.0" prefWidth="76.0" text="Date" />
-      <Label layoutX="293.0" layoutY="132.0" prefHeight="17.0" prefWidth="76.0" text="Date debut" />
-      <Label layoutX="293.0" layoutY="174.0" prefHeight="17.0" prefWidth="76.0" text="Date Fin" />
       <Label layoutX="293.0" layoutY="214.0" prefHeight="17.0" prefWidth="61.0" text="Prix" />
       <Label layoutX="293.0" layoutY="251.0" prefHeight="25.0" prefWidth="105.0" text="Nombre de place" />
       <Label layoutX="293.0" layoutY="300.0" prefHeight="17.0" prefWidth="76.0" text="Type" />
       <DatePicker fx:id="date" layoutX="383.0" layoutY="81.0" />
-      <DatePicker fx:id="date_debut" layoutX="383.0" layoutY="128.0" />
-      <DatePicker fx:id="date_fin" layoutX="383.0" layoutY="170.0" />
       <TextField fx:id="idEvent" layoutX="109.0" layoutY="111.0" />
       <TextField fx:id="titre" layoutX="109.0" layoutY="149.0" />
       <TextArea fx:id="description" layoutX="105.0" layoutY="199.0" prefHeight="64.0" prefWidth="149.0" />
