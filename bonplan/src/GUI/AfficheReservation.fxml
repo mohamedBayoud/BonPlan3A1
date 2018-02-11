@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AfficheReservationController">
+   <children>
+      <TableView fx:id="tableView" layoutX="44.0" layoutY="26.0" onMouseClicked="#clicked" prefHeight="174.0" prefWidth="512.0">
+        <columns>
+          <TableColumn fx:id="dateEntree" prefWidth="82.0" text="DateEntree" />
+          <TableColumn fx:id="dateSortie" prefWidth="68.0" text="DateSortie" />
+            <TableColumn fx:id="nbrPersonnes" prefWidth="73.0" text="nbrPersonnes" />
+            <TableColumn fx:id="type" minWidth="0.0" prefWidth="86.0" text="type" />
+            <TableColumn fx:id="nom" prefWidth="357.0" text="nom" />
+        </columns>
+      </TableView>
+      <TextField fx:id="idReservation" layoutX="14.0" layoutY="237.0" prefHeight="25.0" prefWidth="61.0" promptText="id" />
+      <Button fx:id="supprimer" layoutX="497.0" layoutY="332.0" mnemonicParsing="false" onAction="#supprimer" text="supprimer" />
+      <Button fx:id="modifier" layoutX="66.0" layoutY="332.0" mnemonicParsing="false" onAction="#Modifier" text="Modifier" />
+      <TextField fx:id="dateE" layoutX="111.0" layoutY="237.0" prefHeight="25.0" prefWidth="90.0" promptText="date d'entree" />
+      <TextField fx:id="dateS" layoutX="227.0" layoutY="237.0" prefHeight="25.0" prefWidth="104.0" promptText="date de sortie" />
+      <TextField fx:id="nbrP" layoutX="361.0" layoutY="237.0" prefHeight="25.0" prefWidth="104.0" promptText="nbr de personnes" />
+      <TextField fx:id="typee" layoutX="487.0" layoutY="237.0" prefHeight="25.0" prefWidth="90.0" promptText="type" />
+      <DatePicker fx:id="dateEn" layoutX="111.0" layoutY="282.0" prefHeight="25.0" prefWidth="97.0" />
+      <DatePicker fx:id="dateSo" layoutX="227.0" layoutY="282.0" prefHeight="25.0" prefWidth="104.0" />
+   </children>
+</AnchorPane>

@@ -5,7 +5,6 @@
  */
 package Entities;
 
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.sql.Date;
 import java.util.Objects;
 
@@ -32,6 +31,14 @@ private float prix;
         this.type = type;
         
         
+    }
+
+    public Reservation(int idReservation, int nbrPersonnes, Date dateEntree, Date dateSortie, String type) {
+        this.idReservation = idReservation;
+        this.nbrPersonnes = nbrPersonnes;
+        this.dateEntree = dateEntree;
+        this.dateSortie = dateSortie;
+        this.type = type;
     }
 
     public int getIdReservation() {

@@ -7,6 +7,7 @@ package GUI;
 
 import Entities.Reservation;
 import Services.ServiceReservation;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -14,10 +15,15 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javax.swing.JTextField;
 
 
@@ -42,27 +48,30 @@ public class ReservationController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    @FXML
+    private void pageModifier(ActionEvent event) throws IOException {
+        Parent pm =FXMLLoader.load(getClass().getResource("AfficheReservation.fxml"));
+        Scene sm = new Scene(pm, 700, 400);
+        Stage s =(Stage)((Node) event.getSource()).getScene().getWindow();
+        s.setScene(sm);
+        s.show();
+//    
+    
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
 
     @FXML
-    private void AjouterReservation(ActionEvent event) throws SQLException {
+    private void AjouterReservation(ActionEvent event) throws SQLException, IOException {
    
-     //  String a = NbrPlaces.getText();
      String i = NbrPlaces.getText();
         int b = Integer.parseInt(i);
-//        String j = prix.getText();
-//        float d = Float.parseFloat(j);
-//        String e = idEvent.getText();
-//        int r = Integer.parseInt(e);
-//        String t = idpersonne.getText();
-//        int y = Integer.parseInt(t);
-//           
+
+          
        Date  d1 = java.sql.Date.valueOf(dateEntree.getValue());
       Date  d3 = java.sql.Date.valueOf(DateSortie.getValue());
-//    e1 = new Evenement(r,y,description.getText(),b,titre.getText(),d,lieu.getText(),type.getText(),d1,d2,d3);
 
 
        
@@ -70,5 +79,13 @@ public class ReservationController implements Initializable {
     ServiceReservation sr = new ServiceReservation();
     sr.AjouterReservation(r);
     
+    Parent pm =FXMLLoader.load(getClass().getResource("AfficheReservation.fxml"));
+        Scene sm = new Scene(pm, 700, 400);
+        Stage s =(Stage)((Node) event.getSource()).getScene().getWindow();
+        s.setScene(sm);
+        s.show();
+    
      }
+   
+    
 }
