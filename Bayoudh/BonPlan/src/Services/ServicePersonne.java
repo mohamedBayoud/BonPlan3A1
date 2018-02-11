@@ -12,7 +12,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ConnexionBd.DataSource;
-import Entites.User;
+import Entites.Personne;
 import java.sql.ResultSet;
 import java.util.Scanner;
 
@@ -20,21 +20,21 @@ import java.util.Scanner;
  *
  * @author Omar
  */
-public class ServiceUser {
+public class ServicePersonne {
 
     public Connection con = DataSource.getInstance().getConnection();
     public Statement ste;
 
-    public ServiceUser() {
+    public ServicePersonne() {
         try {
             ste = con.createStatement();
         } catch (SQLException ex) {
-            Logger.getLogger(ServiceUser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServicePersonne.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
-    public void AjouterUser(User E) throws SQLException {
+    public void AjouterPersonne(Personne E) throws SQLException {
         System.out.println("Veuillez Entrer les Donnees");
 
         String req = "INSERT INTO `personne`(`idPersonne`, `nom`, `prenom`, `cin`, `tel`, `dateNaissance`, `email`, `role`, `login`, `mdp`) VALUES (?,?,?,?,?,?,?,?,?,?)";
@@ -51,11 +51,11 @@ public class ServiceUser {
         pre.setString(9, E.getLogin());
         pre.setString(10, E.getMdp());
         pre.executeUpdate();
-        System.out.println("User  Ajoutée");
+        System.out.println("Personne  Ajoutée");
 
     }
 
-    public void supprimerUser(int idPersonne) throws SQLException {
+    public void supprimerPersonne(int idPersonne) throws SQLException {
         Scanner sc = new Scanner(System.in);
 
         String req = "DELETE FROM `personne` WHERE idPersonne =?";
@@ -64,7 +64,7 @@ public class ServiceUser {
         pre.executeUpdate();
     }
 
-    public void ModifierUser(User E, int idPersonne) throws SQLException {
+    public void ModifierPersonne(Personne E, int idPersonne) throws SQLException {
         Scanner sc = new Scanner(System.in);
 
         String req = "UPDATE `personne` SET `idPersonne`=?,`nom`=?,`prenom`=?,`cin`=?,`tel`=?,`dateNaissance`=?,`email`=?,`role`=?,`login`=?,`mdp`=? WHERE idPersonne=? ";
@@ -82,10 +82,10 @@ public class ServiceUser {
         pre.setInt(11, idPersonne);
         pre.executeUpdate();
 
-        System.out.println("User Modifie avec Succees");
+        System.out.println("Personne Modifie avec Succees");
     }
 
-    public void ConsulterUser() throws SQLException {
+    public void ConsulterPersonne() throws SQLException {
         ResultSet res;
         String req = "SELECT * from personne";
         res = ste.executeQuery(req);

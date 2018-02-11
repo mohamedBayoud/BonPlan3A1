@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author Omar
  */
-public class User {
+public class Personne {
 
     private int IdPersonne;
     private String nom;
@@ -25,7 +25,7 @@ public class User {
     private String login;
     private String mdp;
 
-    public User(int IdPersonne, String nom, String prenom, int cin, int tel, Date dateNaissance, String email, String role, String login, String mdp) {
+    public Personne(int IdPersonne, String nom, String prenom, int cin, int tel, Date dateNaissance, String email, String role, String login, String mdp) {
         this.IdPersonne = IdPersonne;
         this.nom = nom;
         this.prenom = prenom;
@@ -38,7 +38,7 @@ public class User {
         this.mdp = mdp;
     }
 
-    public User(String text, String text0) {
+    public Personne(String text, String text0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -149,7 +149,7 @@ public class User {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final User other = (User) obj;
+        final Personne other = (Personne) obj;
         if (this.IdPersonne != other.IdPersonne) {
             return false;
         }
@@ -185,7 +185,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "IdPersonne=" + IdPersonne + ", nom=" + nom + ", prenom=" + prenom + ", cin=" + cin + ", tel=" + tel + ", dateNaissance=" + dateNaissance + ", email=" + email + ", role=" + role + ", login=" + login + ", mdp=" + mdp + '}';
+        return "Personne{" + "IdPersonne=" + IdPersonne + ", nom=" + nom + ", prenom=" + prenom + ", cin=" + cin + ", tel=" + tel + ", dateNaissance=" + dateNaissance + ", email=" + email + ", role=" + role + ", login=" + login + ", mdp=" + mdp + '}';
     }
 
     

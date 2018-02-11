@@ -6,7 +6,7 @@
 package Services;
 
 import ConnexionBd.DataSource;
-import Entites.User;
+import Entites.Personne;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -42,7 +42,7 @@ public class ServiceLogin {
         rs = ste.executeQuery(req);
          if (rs.next())
          {
-                      User per=new User(rs.getInt("IdPersonne"),rs.getString("nom"),rs.getString("prenom"),rs.getInt("cin"),rs.getInt("tel"),rs.getDate("dateNaissance"),rs.getString("email"),rs.getString("role"),rs.getString("login"),rs.getString("mdp"));
+                      Personne per=new Personne(rs.getInt("IdPersonne"),rs.getString("nom"),rs.getString("prenom"),rs.getInt("cin"),rs.getInt("tel"),rs.getDate("dateNaissance"),rs.getString("email"),rs.getString("role"),rs.getString("login"),rs.getString("mdp"));
 
              System.err.println("yess");
              return true;
