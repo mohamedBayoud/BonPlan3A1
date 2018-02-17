@@ -5,24 +5,22 @@
  */
 package GUI;
 
-import Services.ServiceLogin;
+import Entities.User;
+import Services.ServiceUser;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
 
 /**
  * FXML Controller class
@@ -32,11 +30,13 @@ import javafx.stage.Stage;
 public class LoginController implements Initializable {
 
     @FXML
-    private TextField Username;
+    private TextField login;
     @FXML
-    private PasswordField Passowrd;
+    private PasswordField mdp;
     @FXML
-    private Button connect;
+    private Button inscrire;
+    @FXML
+    private Button connecter;
 
     /**
      * Initializes the controller class.
@@ -44,35 +44,43 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    }    
+
+    @FXML
+    private void inscrire(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Isncription.fxml"));
+        Parent root = loader.load();
+        IsncriptionController frc = loader.getController();
+        inscrire.getScene().setRoot(root);
     }
 
     @FXML
-    private void Login(ActionEvent event) {
-        ServiceLogin sv = new ServiceLogin();
-
-     
-
-            String login = Username.getText();
-            String mdp = Passowrd.getText();
-            if (sv.login(login, mdp)) {
-                 try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Acceuil.fxml"));
-                Parent root = loader.load();
-                //  AcceuilController frc = loader.getController();
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root));
-                stage.show();
-                  } catch (IOException ex) {
-            Logger.getLogger(AcceuilController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            } else {
-                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("ERROR Dialog");
-        alert.setHeaderText(null);
-        alert.setContentText("Verifier vos donnees!");
-        alert.show();
-            }
-
-      
+    private void connecter(ActionEvent event) throws SQLException, IOException {
+         List<User> list = new ArrayList<>();
+        ServiceUser su = new ServiceUser();
+        list = ServiceUser.ChercherUser();
+        //System.out.println("frr");
+        String e = login.getText();
+        String e1 = mdp.getText();
+                
+        for(int i = 0; i <  list.size(); i++){
+            
+            if (list.get(i).getLogin().equals(e) &&list.get(i).getMdp().equals(e1)) 
+            {
+                
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
+            Parent root =  loader.load();
+            MenuController frc = loader.getController();
+            frc.setRole(list.get(i).getRole());
+            frc.setIDClient(list.get(i).getIdPersonne());
+            frc.setEmail(list.get(i).getEmail());
+            connecter.getScene().setRoot(root);     
+        
+            
+            }}
+        
     }
+  
+    
+    
 }

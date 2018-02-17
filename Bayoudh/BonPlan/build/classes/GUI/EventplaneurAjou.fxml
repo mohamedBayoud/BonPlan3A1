@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EventplaneurAjouController">
+   <children>
+      <ImageView fitHeight="737.0" fitWidth="1282.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/28170581_1586991544689705_112971548_o.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="role" layoutX="227.0" layoutY="37.0" prefHeight="25.0" prefWidth="105.0" />
+      <TextField fx:id="id_client" layoutX="374.0" layoutY="40.0" prefHeight="25.0" prefWidth="97.0" />
+      <TextField fx:id="email_client" layoutX="107.0" layoutY="40.0" prefHeight="25.0" prefWidth="75.0" />
+      <Button fx:id="retour" blendMode="HARD_LIGHT" layoutX="1181.0" layoutY="37.0" mnemonicParsing="false" onAction="#retour" prefHeight="17.0" prefWidth="105.0" text="Retour" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="sedeconnecter" blendMode="HARD_LIGHT" layoutX="1111.0" layoutY="658.0" mnemonicParsing="false" onAction="#sedeconnecter" prefHeight="36.0" prefWidth="165.0" text="Se  deconnecter" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <DatePicker fx:id="date" layoutX="107.0" layoutY="237.0" prefHeight="29.0" prefWidth="174.0" promptText="Date d'evenement" />
+      <TextField fx:id="titre" layoutX="111.0" layoutY="145.0" prefHeight="30.0" prefWidth="155.0" promptText="Titre d'evenement">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="description" layoutX="336.0" layoutY="372.0" prefHeight="225.0" prefWidth="252.0" promptText="Description">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </TextArea>
+      <ListView fx:id="imagetelecharger" layoutX="352.0" layoutY="237.0" prefHeight="29.0" prefWidth="209.0" />
+      <ComboBox fx:id="ComboType" layoutX="105.0" layoutY="565.0" prefWidth="150.0" promptText="Type" />
+      <TextField fx:id="lieu" layoutX="107.0" layoutY="321.0" prefHeight="30.0" prefWidth="155.0" promptText="Lieu">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="prix" layoutX="108.0" layoutY="407.0" prefHeight="30.0" prefWidth="155.0" promptText="Prix">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="nbplace" layoutX="106.0" layoutY="478.0" prefHeight="30.0" prefWidth="155.0" promptText="Nombre de places">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextField>
+      <Button fx:id="imagebrowse" blendMode="HARD_LIGHT" layoutX="304.0" layoutY="187.0" mnemonicParsing="false" onAction="#browse" prefHeight="0.0" prefWidth="247.0" text="Selectionner l'image" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="ajoutEvent" blendMode="HARD_LIGHT" layoutX="252.0" layoutY="657.0" mnemonicParsing="false" onAction="#AjoutEvent" prefHeight="0.0" prefWidth="247.0" text="Ajouter Evenement" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

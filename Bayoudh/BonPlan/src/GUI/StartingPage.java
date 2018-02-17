@@ -20,15 +20,15 @@ import javafx.stage.Stage;
  * @author Amina
  */
 public class StartingPage extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) throws IOException {
-       Parent root = FXMLLoader.load(getClass().getResource("Acceuil.fxml"));
-      
-            
-        Scene scene = new Scene(root, 700  , 600);
-        primaryStage.setTitle("Hello World!");
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+
+        Scene scene = new Scene(root);
+        primaryStage.setTitle("Bon Plan");
         primaryStage.setScene(scene);
+
         primaryStage.show();
     }
 
@@ -38,5 +38,5 @@ public class StartingPage extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
