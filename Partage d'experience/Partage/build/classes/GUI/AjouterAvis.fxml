@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterAvisController">
+   <children>
+      <ImageView fx:id="ImageView" fitHeight="420.0" fitWidth="600.0" opacity="0.49" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@VillaDidon.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="67.0" layoutY="42.0" text="Membre" />
+      <TextField fx:id="LoginText" layoutX="147.0" layoutY="38.0" />
+      <Button fx:id="ButtonAjouter" layoutX="447.0" layoutY="336.0" mnemonicParsing="false" onAction="#ButtonAjouter" text="Ajouter">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+      <TextField fx:id="CommentaireField" layoutX="72.0" layoutY="200.0" opacity="0.74" prefHeight="125.0" prefWidth="375.0" />
+      <Label layoutX="65.0" layoutY="75.0" text="Note Cuisine" />
+      <Label layoutX="63.0" layoutY="101.0" text="Note Rapport" />
+      <Label layoutX="64.0" layoutY="126.0" text="Note Service" />
+      <Label layoutX="63.0" layoutY="151.0" text="Note Ambiance" />
+      <Label layoutX="63.0" text="Partager l'experience">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="ReturnButton" layoutX="496.0" layoutY="14.0" mnemonicParsing="false" onAction="#ReturnButton" prefHeight="42.0" prefWidth="90.0" text="Retour">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="NoteCuisineField" layoutX="147.0" layoutY="71.0" prefHeight="25.0" prefWidth="44.0" />
+      <TextField fx:id="NoteRapportField" layoutX="147.0" layoutY="98.0" prefHeight="25.0" prefWidth="44.0" />
+      <TextField fx:id="NoteServiceField" layoutX="147.0" layoutY="124.0" prefHeight="25.0" prefWidth="44.0" />
+      <TextField fx:id="NoteAmbianceField" layoutX="147.0" layoutY="150.0" prefHeight="25.0" prefWidth="44.0" />
+      <Button fx:id="RatingButton" layoutX="79.0" layoutY="349.0" mnemonicParsing="false" onAction="#RatingButton" text="Rating" />
+   </children>
+</AnchorPane>
