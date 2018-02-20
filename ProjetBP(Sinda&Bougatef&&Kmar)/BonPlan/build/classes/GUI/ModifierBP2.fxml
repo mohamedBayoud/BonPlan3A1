@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ModifierBP2Controller">
+   <children>
+      <ImageView fx:id="AjouterImg1" fitHeight="749.0" fitWidth="1280.0" layoutX="-2.0" layoutY="-7.0" opacity="0.3">
+         <image>
+            <Image url="@gnrique-final.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="427.0" layoutY="538.0" text=" de places">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="retour" layoutX="37.0" layoutY="688.0" mnemonicParsing="false" onAction="#retour" text="return" />
+      <TextField fx:id="imageTelecharger" layoutX="74.0" layoutY="120.0" prefHeight="27.0" prefWidth="129.0" visible="false" />
+      <TextField fx:id="idBP" layoutX="207.0" layoutY="27.0" visible="false" />
+      <ImageView fx:id="imgView" fitHeight="304.0" fitWidth="292.0" layoutX="411.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" />
+      <TableView fx:id="tableView" layoutX="735.0" layoutY="145.0" onMouseClicked="#CLicked" prefHeight="458.0" prefWidth="535.0">
+         <columns>
+            <TableColumn fx:id="nomBP" prefWidth="74.0" text="Nom" />
+            <TableColumn fx:id="photoBP" prefWidth="92.46240234375" text="Photo" />
+            <TableColumn fx:id="descriptionBP" prefWidth="193.5374755859375" text="Description" />
+            <TableColumn fx:id="adresseBP" prefWidth="75.6375732421875" text="Adresse" />
+            <TableColumn fx:id="villeBP" prefWidth="99.2523193359375" text="Ville" />
+         </columns>
+      </TableView>
+      <Button fx:id="supprimerBP" layoutX="489.0" layoutY="631.0" mnemonicParsing="false" onAction="#supprimerBP" prefHeight="44.0" prefWidth="129.0" text="Supprimer">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="browse" layoutX="106.0" layoutY="238.0" mnemonicParsing="false" onAction="#browse" prefHeight="42.0" prefWidth="239.0" text="Browse" />
+      <Label layoutX="36.0" layoutY="138.0" text="Nom">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="243.0" text="Photo">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="411.0" text="Description">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="98.0" layoutY="64.0" text="Modifier:" textFill="#b26405">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="436.0" layoutY="449.0" text="Adresse">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="556.0" prefHeight="23.0" prefWidth="49.0" text="Ville">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="447.0" layoutY="515.0" text="Nombre ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="descriptionText" layoutX="109.0" layoutY="348.0" prefHeight="158.0" prefWidth="245.0" />
+      <TextField fx:id="adresseText" layoutX="513.0" layoutY="442.0" prefHeight="27.0" prefWidth="187.0" />
+      <TextField fx:id="villeText" layoutX="108.0" layoutY="552.0" prefHeight="27.0" prefWidth="241.0" />
+      <TextField fx:id="nomText" layoutX="111.0" layoutY="132.0" prefHeight="27.0" prefWidth="231.0" />
+      <ImageView fitHeight="71.0" fitWidth="182.0" layoutX="1073.0" layoutY="39.0">
+         <image>
+            <Image url="@../../../../../../Downloads/Bons-Plans-1.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="modifierBP" layoutX="301.0" layoutY="629.0" mnemonicParsing="false" onAction="#modifierBP" prefHeight="44.0" prefWidth="129.0" text="Modifier">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="nbrPlaceText" layoutX="548.0" layoutY="519.0" prefHeight="27.0" prefWidth="83.0" />
+      <Label layoutX="223.0" layoutY="64.0" text="Culinaire" textFill="#d34c0d">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
