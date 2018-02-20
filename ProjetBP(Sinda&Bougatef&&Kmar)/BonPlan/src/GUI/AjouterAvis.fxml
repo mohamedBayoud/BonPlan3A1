@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterAvisController">
+   <children>
+      <ImageView fitHeight="878.0" fitWidth="1425.0" layoutX="-14.0" layoutY="-49.0" opacity="0.57" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@HD.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="177.0" layoutY="200.0" text="Membre">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Label>
+      <TextField fx:id="LoginText" layoutX="291.0" layoutY="206.0" prefHeight="25.0" prefWidth="138.0" />
+      <Button fx:id="ButtonAjouter" layoutX="739.0" layoutY="626.0" mnemonicParsing="false" onAction="#ButtonAjouter" text="Ajouter">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+      <TextField fx:id="CommentaireField" layoutX="179.0" layoutY="412.0" opacity="0.74" prefHeight="175.0" prefWidth="670.0" />
+      <Label layoutX="177.0" layoutY="260.0" text="Note Cuisine">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="176.0" layoutY="291.0" text="Note Rapport">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="175.0" layoutY="319.0" text="Note Service">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="176.0" layoutY="348.0" text="Note Ambiance">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="207.0" layoutY="26.0" text="Partager l'experience">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Label>
+      <Button fx:id="ReturnButton" layoutX="929.0" layoutY="44.0" mnemonicParsing="false" onAction="#ReturnButton" prefHeight="51.0" prefWidth="104.0" text="Retour">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <TextField fx:id="NoteCuisineField" layoutX="308.0" layoutY="257.0" prefHeight="25.0" prefWidth="44.0" />
+      <TextField fx:id="NoteRapportField" layoutX="308.0" layoutY="287.0" prefHeight="25.0" prefWidth="44.0" />
+      <TextField fx:id="NoteServiceField" layoutX="308.0" layoutY="316.0" prefHeight="25.0" prefWidth="44.0" />
+      <TextField fx:id="NoteAmbianceField" layoutX="308.0" layoutY="346.0" prefHeight="25.0" prefWidth="44.0" />
+   </children>
+</AnchorPane>

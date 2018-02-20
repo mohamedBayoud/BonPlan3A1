@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="DateDepart" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterTransportController">
+   <children>
+      <Button fx:id="BUTTON" layoutX="513.0" layoutY="353.0" mnemonicParsing="false" onAction="#ajouterTransport" text="Ajouter" />
+      <Label layoutX="58.0" layoutY="65.0" prefHeight="17.0" prefWidth="66.0" text="Ville depart" />
+      <Label layoutX="58.0" layoutY="243.0" prefHeight="17.0" prefWidth="112.0" text="Prix d'une place" />
+      <Label layoutX="146.0" layoutY="14.0" prefHeight="17.0" prefWidth="66.0" text="Type" />
+      <Label layoutX="55.0" layoutY="202.0" prefHeight="17.0" prefWidth="93.0" text="Heure d'arrivée" />
+      <Label layoutX="58.0" layoutY="165.0" prefHeight="17.0" prefWidth="112.0" text="Heure de depart" />
+      <Label layoutX="58.0" layoutY="133.0" prefHeight="17.0" prefWidth="177.0" text="Nombre de places disponibles" />
+      <Label layoutX="59.0" layoutY="98.0" prefHeight="17.0" prefWidth="85.0" text="Ville d'arrivee" />
+      <TextField fx:id="VilleDepart" layoutX="300.0" layoutY="61.0" promptText="ville de depart" />
+      <TextField fx:id="PrixPlace" layoutX="301.0" layoutY="239.0" promptText="prix d'une place" />
+      <TextField fx:id="HeureArrivee" layoutX="301.0" layoutY="198.0" promptText="heure d'arrivee" />
+      <TextField fx:id="HeureDepart" layoutX="301.0" layoutY="161.0" promptText="heure de depart" />
+      <TextField fx:id="NbrPlaceDispo" layoutX="301.0" layoutY="129.0" promptText="nombre de places dispo" />
+      <TextField fx:id="VilleArrivee" layoutX="301.0" layoutY="94.0" promptText="ville d'arrivee" />
+      <PointLight color="CHARTREUSE" layoutX="58.0" layoutY="280.0" lightOn="true" />
+      <SplitMenuButton fx:id="Covoiturage" layoutX="246.0" layoutY="10.0" mnemonicParsing="false" text="Covoiturage">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </SplitMenuButton>
+      <Button fx:id="retour" layoutX="17.0" layoutY="13.0" mnemonicParsing="false" onAction="#retour" text="&lt;-" />
+      <TextField fx:id="role" layoutX="76.0" layoutY="15.0" visible="false" />
+      <TextField fx:id="id_client" layoutX="364.0" layoutY="15.0" visible="false" />
+      <Button fx:id="logout" layoutX="543.0" layoutY="15.0" mnemonicParsing="false" onAction="#logout" text="logout" />
+      <Label layoutX="59.0" layoutY="287.0" text="Date de depart" />
+      <DatePicker fx:id="DatePicker" layoutX="301.0" layoutY="285.0" onAction="#DatePicker" prefHeight="32.0" prefWidth="149.0" promptText="Selectioner une date" />
+   </children>
+</AnchorPane>

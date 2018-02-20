@@ -1,0 +1,133 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package GUI;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
+
+
+
+/**
+ *
+ * @author Aycha
+ */
+public class Notification {
+    public static void notificationDeModification(ActionEvent event,Image i){
+        
+         Notifications notificationBuilder = Notifications.create()
+                .title("BON PLAN")
+                .text(" Votre blon plan a été modifié .")
+                 
+                .graphic(new ImageView(i))
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BASELINE_LEFT)
+                .onAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+            
+                
+            
+            }
+        });
+           notificationBuilder.darkStyle();
+           notificationBuilder.show();
+    }
+	
+	 public static void notificationDeSuppression(ActionEvent event,Image i){
+        
+         Notifications notificationBuilder = Notifications.create()
+                .title("BON PLAN")
+                .text(" Votre blon plan a été supprimé .")
+                 
+                .graphic(new ImageView(i))
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BASELINE_LEFT)
+                .onAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+            
+                
+            
+            }
+        });
+           notificationBuilder.darkStyle();
+           notificationBuilder.show();
+    }
+    public static void notificationDeConfirmation(ActionEvent event,Image i){
+        
+         Notifications notificationBuilder = Notifications.create()
+                .title("Evénements")
+                .text(" Creation faite")
+                 
+                .graphic(new ImageView(i))
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BASELINE_LEFT)
+                .onAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+            
+                
+            
+            }
+        });
+           notificationBuilder.darkStyle();
+           notificationBuilder.show();
+    }
+    
+    
+    
+    public  static void notificationErreur(ActionEvent event,Image i){
+          Notifications notificationBuilder = Notifications.create()
+                .title("Champs Manquant Ou Dates invalides")
+                .text(" Veuillez Verifier vos champs")
+                 
+                .graphic(new ImageView(i))
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BASELINE_LEFT)
+                .onAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+            
+                
+            
+            }
+        });
+           notificationBuilder.darkStyle();
+           notificationBuilder.show();
+       
+       } 
+        
+        public  static void notificationVide(ActionEvent event,Image i){
+          Notifications notificationBuilder = Notifications.create()
+                .title("Vos champs Sont vides")
+                .text(" Veuillez Remplir Vos champs !!!")
+                 
+                .graphic(new ImageView(i))
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BASELINE_LEFT)
+                .onAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+            
+                
+            
+            }
+        });
+           notificationBuilder.darkStyle();
+           notificationBuilder.show();
+       
+       }
+}

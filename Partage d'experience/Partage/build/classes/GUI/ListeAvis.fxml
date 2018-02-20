@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ListeAvisController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" layoutY="-1.0" opacity="0.38" pickOnBounds="true">
+         <image>
+            <Image url="@HD.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="personsTable" layoutX="33.0" layoutY="31.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="Commentaire" prefWidth="146.0" text="Les Commentaires" />
+        </columns>
+      </TableView>
+      <Button fx:id="Supprimer" layoutX="448.0" layoutY="56.0" mnemonicParsing="false" onAction="#ButtonSupprimer" text="Supprimer" />
+      <Button fx:id="Modifier" layoutX="405.0" layoutY="106.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="25.0" prefWidth="131.0" text="Modifier mon Avis" />
+      <TextField fx:id="CommentaireField" layoutX="346.0" layoutY="263.0" opacity="0.74" prefHeight="95.0" prefWidth="228.0" />
+      <Label layoutX="345.0" layoutY="156.0" text="Note Cuisine" />
+      <Label layoutX="346.0" layoutY="184.0" text="Note Rapport" />
+      <Label layoutX="346.0" layoutY="210.0" text="Note Service" />
+      <Label layoutX="346.0" layoutY="235.0" text="Note Ambiance" />
+      <ComboBox fx:id="Box" layoutX="336.0" layoutY="106.0" prefHeight="25.0" prefWidth="60.0" />
+      <Button fx:id="Ajouter" layoutX="373.0" layoutY="19.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="25.0" prefWidth="149.0" text="Partager mon experience" />
+      <ComboBox fx:id="Box2" layoutX="386.0" layoutY="57.0" prefHeight="25.0" prefWidth="60.0" />
+      <Button fx:id="buttonStat" layoutX="45.0" layoutY="333.0" mnemonicParsing="false" onAction="#ButtonStat" text="Statistique" />
+      <TextField fx:id="NoteCuisineField" layoutX="429.0" layoutY="152.0" prefHeight="25.0" prefWidth="40.0" />
+      <TextField fx:id="NoteRapportField" layoutX="429.0" layoutY="179.0" prefHeight="25.0" prefWidth="40.0" />
+      <TextField fx:id="NoteServiceField" layoutX="429.0" layoutY="205.0" prefHeight="25.0" prefWidth="40.0" />
+      <TextField fx:id="NoteAmbianceField" layoutX="429.0" layoutY="231.0" prefHeight="25.0" prefWidth="40.0" />
+      <Label layoutX="31.0" layoutY="271.0" text="Note Globale" />
+      <HBox fx:id="hboxRating" layoutX="108.0" layoutY="263.0" prefHeight="59.0" prefWidth="168.0">
+         <children>
+            <ImageView fx:id="etoilevide1" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide2" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide3" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide4" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide5" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
