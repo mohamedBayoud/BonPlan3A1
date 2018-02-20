@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AffichageTrainController">
+   <children>
+      <TableView fx:id="tableView" layoutX="15.0" layoutY="34.0" onMouseClicked="#clickedd" prefHeight="178.0" prefWidth="570.0">
+         <columns>
+            <TableColumn fx:id="VilleDepart" prefWidth="75.0" text="VilleDepart" />
+            <TableColumn fx:id="VilleArrivee" prefWidth="77.0" text="VilleArrivee" />
+            <TableColumn fx:id="nbrPlaceDispo" prefWidth="90.0" text="nbrPlaceDispo" />
+            <TableColumn fx:id="heureDepart" prefWidth="97.0" text="HeureDepart" />
+            <TableColumn fx:id="heureArrivee" prefWidth="86.0" text="HeureArrivee" />
+            <TableColumn fx:id="prix" minWidth="0.0" prefWidth="66.0" text="luxe" />
+            <TableColumn fx:id="eco" prefWidth="97.0" text="eco" />
+         </columns>
+      </TableView>
+      <TextField fx:id="VilleDepart1" layoutX="44.0" layoutY="221.0" promptText="ville de depart" />
+      <TextField fx:id="HeureArrivee" layoutX="236.0" layoutY="273.0" promptText="heure d'arrivee" />
+      <TextField fx:id="HeureDepart" layoutX="45.0" layoutY="273.0" promptText="heure de depart" />
+      <TextField fx:id="NbrPlaceDispo" layoutX="436.0" layoutY="221.0" promptText="nombre de places dispo" />
+      <TextField fx:id="VilleArrivee1" layoutX="235.0" layoutY="221.0" promptText="ville d'arrivee" />
+      <Button fx:id="modifier" layoutX="406.0" layoutY="367.0" mnemonicParsing="false" onAction="#Modifier" text="Modifier" />
+      <Button fx:id="supprimer" layoutX="486.0" layoutY="367.0" mnemonicParsing="false" onAction="#supprimer" text="Supprimer" />
+      <TextField fx:id="idTransport" layoutX="236.0" layoutY="329.0" promptText="idTransport" />
+      <Label layoutX="287.0" layoutY="6.0" text="Train" />
+      <TextField fx:id="luxe" layoutX="437.0" layoutY="273.0" promptText="prix classe luxe" />
+      <TextField fx:id="eco1" layoutX="45.0" layoutY="329.0" promptText="prix classe eco" />
+      <Button fx:id="retour" layoutX="7.0" layoutY="3.0" mnemonicParsing="false" onAction="#retour" text="&lt;-" />
+      <TextField fx:id="role" layoutX="66.0" layoutY="5.0" visible="false" />
+      <TextField fx:id="id_client" layoutX="344.0" layoutY="11.0" visible="false" />
+      <Button fx:id="logout" layoutX="522.0" layoutY="5.0" mnemonicParsing="false" onAction="#logout" text="logout" />
+      <Button fx:id="participer" layoutX="277.0" layoutY="245.0" mnemonicParsing="false" onAction="#participer" text="Participer" />
+      <TextField fx:id="idTransport1" layoutX="430.0" layoutY="246.0" visible="false" />
+      <TextField fx:id="email" layoutX="235.0" layoutY="301.0" visible="false" />
+      <DatePicker fx:id="DatePicker" layoutX="412.0" layoutY="326.0" onAction="#DatePicker" prefHeight="32.0" prefWidth="149.0" promptText="Selectioner une date" />
+      <TextField fx:id="dateDepart1" layoutX="236.0" layoutY="367.0" promptText="Date de depart" visible="false" />
+   </children>
+</AnchorPane>

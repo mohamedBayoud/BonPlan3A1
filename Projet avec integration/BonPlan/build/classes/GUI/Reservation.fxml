@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ReservationController">
+   <children>
+      <ImageView fitHeight="406.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true" />
+      <Text fill="#48a5ea" layoutX="315.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Réservation" textAlignment="CENTER">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <DatePicker fx:id="dateEntree" layoutX="176.0" layoutY="149.0" promptText="Date d'entrée" />
+      <DatePicker fx:id="DateSortie" layoutX="578.0" layoutY="206.0" promptText="date de sortie" />
+      <Button fx:id="Reserver" layoutX="830.0" layoutY="547.0" mnemonicParsing="false" onAction="#AjouterReservation" style="-fx-background-color: #48A5EA;" text="Réserver" />
+      <TextField fx:id="NbrNuit" layoutX="99.0" layoutY="392.0" prefHeight="25.0" prefWidth="174.0" promptText="nombre de nuits" />
+      <Button fx:id="modifier" layoutX="661.0" layoutY="545.0" mnemonicParsing="false" onAction="#pageModifier" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #48A5EA;" text="afficher" />
+      <TextField fx:id="nbrC" layoutX="450.0" layoutY="395.0" prefHeight="25.0" prefWidth="174.0" promptText="nombre de chambres" />
+      <Text layoutX="153.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Veillez remplir ce formulaire : " underline="true">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="typeRes" layoutX="353.0" layoutY="465.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
