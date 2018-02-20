@@ -52,5 +52,10 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
+      <Button fx:id="avis" blendMode="HARD_LIGHT" layoutX="1000.0" layoutY="502.0" mnemonicParsing="false" onAction="#avis" prefHeight="17.0" prefWidth="105.0" text="Avis" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

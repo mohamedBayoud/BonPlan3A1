@@ -26,6 +26,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -85,6 +86,10 @@ public class ConsulterRController implements Initializable {
 	@FXML
 	private Button chercher;
 	private ObservableList<BP> masterData = FXCollections.observableArrayList();
+    @FXML
+    private Button reserver;
+    @FXML
+    private Button avis;
 
 
 	 
@@ -152,6 +157,24 @@ public class ConsulterRController implements Initializable {
 			}
 			}	
 	}
+
+    @FXML
+    private void reserver(ActionEvent event) throws IOException {
+         Parent page = FXMLLoader.load(getClass().getResource("Reservation.fxml"));
+            Scene scene = new Scene(page);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+    }
+
+    @FXML
+    private void avis(ActionEvent event) throws IOException {
+         Parent page = FXMLLoader.load(getClass().getResource("ListeAvis.fxml"));
+            Scene scene = new Scene(page);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+    }
 
 	
      

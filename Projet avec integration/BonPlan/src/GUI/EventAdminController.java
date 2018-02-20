@@ -101,7 +101,7 @@ public class EventAdminController implements Initializable {
                 public void updateItem(LocalDate item, boolean empty) {
                     LocalDate d1 = null;
                     Date dte = java.sql.Date.valueOf(item);
-                    Entites.Evenement ev = new Entites.Evenement();
+                    Entities.Evenement ev = new Entities.Evenement();
                     List<Date> dates = new ArrayList<>();
                     ServiceEvent sv = new ServiceEvent();
                     super.updateItem(item, empty);

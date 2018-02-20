@@ -75,6 +75,8 @@ public class ConsulterHController implements Initializable {
 	private ObservableList<BP> masterData = FXCollections.observableArrayList();
     @FXML
     private Button reserver;
+    @FXML
+    private Button avis;
 
 
 	 
@@ -168,6 +170,15 @@ public class ConsulterHController implements Initializable {
     @FXML
     private void reserver(ActionEvent event) throws IOException {
           Parent page = FXMLLoader.load(getClass().getResource("Reservation.fxml"));
+            Scene scene = new Scene(page);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+    }
+
+    @FXML
+    private void avis(ActionEvent event) throws IOException {
+         Parent page = FXMLLoader.load(getClass().getResource("ListeAvis.fxml"));
             Scene scene = new Scene(page);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
