@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuChoix0Controller">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="886.0" layoutX="1008.0" layoutY="-2.0">
+         <image>
+            <Image url="@../../../../../../Downloads/79d71a60948e68d4bf94ee81c695ee1c--greens-restaurant-restaurant-paris.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="720.0" fitWidth="1009.0" layoutX="-3.0" layoutY="-2.0">
+         <image>
+            <Image url="@../../../../../../Downloads/1200px-Four_Seasons_Miami_complete_20100206.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="ChoixH" blendMode="HARD_LIGHT" cacheHint="QUALITY" cancelButton="true" layoutX="350.0" layoutY="332.0" mnemonicParsing="false" mouseTransparent="true" onAction="#ChoixH" prefHeight="57.0" prefWidth="177.0" text="Hôtels" textOverrun="LEADING_ELLIPSIS">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="ChoixR" blendMode="HARD_LIGHT" layoutX="1382.0" layoutY="331.0" mnemonicParsing="false" onAction="#ChoixR" prefHeight="57.0" prefWidth="177.0" text="Restaurants &amp; Cafés">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font></Button>
+      <Button fx:id="logout" layoutX="1737.0" layoutY="29.0" mnemonicParsing="false" onAction="#logout" prefHeight="5.0" prefWidth="115.0" text="Se déconnecter" />
+   </children>
+</AnchorPane>

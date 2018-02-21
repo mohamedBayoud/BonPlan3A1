@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuChoix1Controller">
+   <children>
+      <ImageView fitHeight="718.0" fitWidth="1286.0" layoutX="-5.0">
+         <image>
+            <Image url="@../../../../../../Downloads/clos-Y-paris-14-restaurant-japonais-couverts-laguiole-1.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="modifierR" layoutX="855.0" layoutY="359.0" mnemonicParsing="false" onAction="#modifierR" prefHeight="61.0" prefWidth="228.0" text="Modifier un resto ">
+         <font>
+            <Font size="21.0" />
+         </font></Button>
+      <Button fx:id="ajouterR" layoutX="280.0" layoutY="364.0" mnemonicParsing="false" onAction="#ajouterR" prefHeight="61.0" prefWidth="227.0" text="Ajouter un resto ">
+         <font>
+            <Font size="23.0" />
+         </font></Button>
+      <Button fx:id="retour" layoutX="29.0" layoutY="674.0" mnemonicParsing="false" onAction="#retour" text="return" />
+      <Button fx:id="logout" layoutX="1131.0" layoutY="26.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="128.0" text="Se déconnecter" />
+   </children>
+</AnchorPane>

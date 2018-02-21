@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuChoixController">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1299.0" layoutX="-8.0">
+         <image>
+            <Image url="@../Images/hotel-de-petit-moulin-p.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="ajouterH" layoutX="368.0" layoutY="313.0" mnemonicParsing="false" onAction="#ajouterH" prefHeight="66.0" prefWidth="228.0" text="Ajouter votre hotel ">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button fx:id="modifierH" layoutX="830.0" layoutY="316.0" mnemonicParsing="false" onAction="#modifierH" prefHeight="64.0" prefWidth="217.0" text="Modifier votre hotel ">
+         <font>
+            <Font size="19.0" />
+         </font></Button>
+      <Button fx:id="retour" layoutX="43.0" layoutY="664.0" mnemonicParsing="false" onAction="#retour" text="Return" />
+      <Button fx:id="logout" layoutX="1126.0" layoutY="31.0" mnemonicParsing="false" onAction="#logout" text="Se déconnecter" />
+   </children>
+</AnchorPane>
