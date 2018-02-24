@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="GUI.AjouterAvisHotelController">
+   <children>
+      <ImageView fitHeight="878.0" fitWidth="1425.0" layoutX="-4.0" layoutY="-39.0" opacity="0.57" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@HD.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="187.0" layoutY="210.0" text="Membre">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="email_client" layoutX="301.0" layoutY="216.0" prefHeight="25.0" prefWidth="138.0" />
+      <Button fx:id="ButtonAjouter" layoutX="749.0" layoutY="636.0" mnemonicParsing="false" onAction="#ButtonAjouter" text="Ajouter">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <TextField fx:id="CommentaireField" layoutX="189.0" layoutY="422.0" opacity="0.74" prefHeight="175.0" prefWidth="670.0" />
+      <Label layoutX="187.0" layoutY="270.0" text="Note Service">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="186.0" layoutY="301.0" text="Note Rapport">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="185.0" layoutY="329.0" text="Note Confort">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="184.0" layoutY="358.0" text="Note Personnel">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="217.0" layoutY="36.0" text="Partager l'experience">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Label>
+      <Button fx:id="ReturnButton" layoutX="939.0" layoutY="54.0" mnemonicParsing="false" onAction="#ReturnButton" prefHeight="51.0" prefWidth="104.0" text="Retour">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <HBox fx:id="hboxRating" layoutX="301.0" layoutY="264.0" prefHeight="59.0" prefWidth="168.0">
+         <children>
+            <ImageView fx:id="etoilevide1" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide2" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide3" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide4" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide5" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox fx:id="hboxRating1" layoutX="303.0" layoutY="296.0" prefHeight="59.0" prefWidth="168.0">
+         <children>
+            <ImageView fx:id="etoilevide11" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide21" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide31" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide41" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide51" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox fx:id="hboxRating2" layoutX="303.0" layoutY="326.0" prefHeight="59.0" prefWidth="168.0">
+         <children>
+            <ImageView fx:id="etoilevide12" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide22" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide32" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide42" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide52" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox fx:id="hboxRating3" layoutX="303.0" layoutY="355.0" prefHeight="59.0" prefWidth="168.0">
+         <children>
+            <ImageView fx:id="etoilevide13" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide23" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide33" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide43" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="etoilevide53" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star-shape-md.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

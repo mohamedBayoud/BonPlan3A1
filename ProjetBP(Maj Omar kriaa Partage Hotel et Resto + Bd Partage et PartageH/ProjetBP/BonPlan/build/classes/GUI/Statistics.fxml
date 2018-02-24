@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="682.0" prefWidth="1247.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.StatisticsController">
+   <children>
+      <ImageView fitHeight="682.0" fitWidth="1266.0" layoutX="-9.0" layoutY="1.0" opacity="0.17" pickOnBounds="true">
+         <image>
+            <Image url="@HD.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnLoad" layoutX="562.0" layoutY="110.0" mnemonicParsing="false" onAction="#LoadChart" prefHeight="74.0" prefWidth="144.0" text="Load">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+      <Button fx:id="Retour" layoutX="1124.0" layoutY="34.0" mnemonicParsing="false" onAction="#ReturnButton" prefHeight="51.0" prefWidth="108.0" text="Retour">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <BarChart fx:id="BarChart" alternativeColumnFillVisible="true" layoutX="219.0" layoutY="203.0" onDragDetected="#LoadChart" prefHeight="476.0" prefWidth="830.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Label layoutX="222.0" layoutY="36.0" text="Statistiques des Personnes qui ont commenté a une date donnée">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <TextField fx:id="role" layoutX="112.0" layoutY="14.0" prefHeight="25.0" prefWidth="105.0" />
+      <TextField fx:id="id_client" layoutX="228.0" layoutY="14.0" prefHeight="25.0" prefWidth="97.0" />
+      <TextField fx:id="email_client" layoutX="23.0" layoutY="14.0" prefHeight="25.0" prefWidth="75.0" />
+   </children>
+</AnchorPane>
