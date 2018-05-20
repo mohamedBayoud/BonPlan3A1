@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AffichageTrainController">
+   <children>
+      <ImageView fitHeight="719.0" fitWidth="1282.0" layoutX="-2.0">
+         <image>
+            <Image url="@../Images/high-speed-modern-train.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tableView" layoutX="43.0" layoutY="143.0" onMouseClicked="#clickedd" prefHeight="451.0" prefWidth="476.0">
+         <columns>
+            <TableColumn fx:id="VilleDepart" prefWidth="102.77058601379395" text="VilleDepart" />
+            <TableColumn fx:id="VilleArrivee" prefWidth="96.33562469482422" text="VilleArrivee" />
+            <TableColumn fx:id="nbrPlaceDispo" prefWidth="98.90773010253906" text="nbrPlaceDispo" />
+            <TableColumn fx:id="heureDepart" prefWidth="73.404296875" text="HeureDepart" />
+            <TableColumn fx:id="heureArrivee" prefWidth="100.404296875" text="HeureArrivee" />
+            <TableColumn fx:id="prix" minWidth="0.0" prefWidth="53.5958251953125" text="luxe" visible="false" />
+            <TableColumn fx:id="eco" prefWidth="67.59579467773438" text="eco" visible="false" />
+         </columns>
+      </TableView>
+      <TextField fx:id="VilleDepart1" layoutX="624.0" layoutY="220.0" prefHeight="42.0" prefWidth="167.0" promptText="ville de depart" />
+      <TextField fx:id="HeureArrivee" layoutX="816.0" layoutY="305.0" prefHeight="42.0" prefWidth="167.0" promptText="heure d'arrivee" />
+      <TextField fx:id="HeureDepart" layoutX="623.0" layoutY="306.0" prefHeight="42.0" prefWidth="167.0" promptText="heure de depart" />
+      <TextField fx:id="NbrPlaceDispo" layoutX="1016.0" layoutY="220.0" prefHeight="42.0" prefWidth="167.0" promptText="nombre de places dispo" />
+      <TextField fx:id="VilleArrivee1" layoutX="815.0" layoutY="220.0" prefHeight="42.0" prefWidth="167.0" promptText="ville d'arrivee" />
+      <Button fx:id="modifier" layoutX="827.0" layoutY="535.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="47.0" prefWidth="129.0" text="Modifier train" textFill="#e88309" />
+      <Button fx:id="supprimer" layoutX="976.0" layoutY="536.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="48.0" prefWidth="118.0" text="Supprimer train" textFill="#e88309" />
+      <TextField fx:id="idTransport" layoutX="813.0" layoutY="372.0" prefHeight="42.0" prefWidth="171.0" promptText="idTransport" visible="false" />
+      <Label layoutX="729.0" layoutY="36.0" prefHeight="63.0" prefWidth="154.0" text="Train" textFill="#ee7903">
+         <font>
+            <Font size="50.0" />
+         </font></Label>
+      <TextField fx:id="luxe" layoutX="1017.0" layoutY="303.0" prefHeight="42.0" prefWidth="167.0" promptText="prix de la place" />
+      <Button fx:id="retour" layoutX="41.0" layoutY="670.0" mnemonicParsing="false" onAction="#retour" text="retour" />
+      <TextField fx:id="role" layoutX="66.0" layoutY="5.0" visible="false" />
+      <TextField fx:id="id_client" layoutX="344.0" layoutY="11.0" visible="false" />
+      <Button fx:id="logout" layoutX="1144.0" layoutY="31.0" mnemonicParsing="false" onAction="#logout" text="Se déconnecter" />
+      <Button fx:id="participer" layoutX="861.0" layoutY="464.0" mnemonicParsing="false" onAction="#participer" prefHeight="45.0" prefWidth="106.0" text="Participer" textFill="#f2820b" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <TextField fx:id="idTransport1" layoutX="430.0" layoutY="246.0" visible="false" />
+      <TextField fx:id="email" layoutX="235.0" layoutY="301.0" visible="false" />
+      <DatePicker fx:id="DatePicker" layoutX="852.0" layoutY="394.0" onAction="#DatePicker" prefHeight="44.0" prefWidth="283.0" promptText="Selectioner une date" visible="false" />
+      <TextField fx:id="dateDepart1" layoutX="621.0" layoutY="396.0" prefHeight="42.0" prefWidth="167.0" promptText="Date de depart" visible="false" />
+      <ImageView fitHeight="80.0" fitWidth="249.0" layoutX="47.0" layoutY="19.0">
+         <image>
+            <Image url="@../Images/Bons-Plans-1.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="plein" layoutX="136.0" layoutY="632.0" prefHeight="72.0" prefWidth="362.0" text="Désolé mais ce train est plein" textFill="#ee0303" visible="false">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="chdepart" layoutX="624.0" layoutY="124.0" onAction="#recherche" prefHeight="38.0" prefWidth="340.0" promptText="donner votre ville de départ" />
+      <Button fx:id="chercher" layoutX="981.0" layoutY="124.0" mnemonicParsing="false" onAction="#recherche" prefHeight="39.0" prefWidth="101.0" text="Chercher" textFill="#e48807">
+         <font>
+            <Font size="17.0" />
+         </font></Button>
+      <Button fx:id="AjoutCov" layoutX="666.0" layoutY="536.0" mnemonicParsing="false" onAction="#AjoutCov" prefHeight="45.0" prefWidth="137.0" text="Ajouter train" textFill="#e88309" />
+      <Label fx:id="villedep" layoutX="627.0" layoutY="195.0" text="Ville de depart" textFill="#f57105" visible="false">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="datedep" layoutX="625.0" layoutY="369.0" text="Date de départ" textFill="#f57105" visible="false">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
+      <Label fx:id="prixdep" layoutX="1024.0" layoutY="276.0" text="Prix " textFill="#f57105" visible="false">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
+      <Label fx:id="heurear" layoutX="816.0" layoutY="280.0" text="Heure d'arrivée" textFill="#f57105" visible="false">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
+      <Label fx:id="heuredep" layoutX="626.0" layoutY="277.0" text="Heure de depart" textFill="#f57105" visible="false">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
+      <Label fx:id="nbpd" layoutX="1017.0" layoutY="196.0" text="Nombre de place " textFill="#f57105" visible="false">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
+      <Label fx:id="villear" layoutX="818.0" layoutY="196.0" text="Ville d'arrivée" textFill="#f57105" visible="false">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
+      <Button fx:id="annuler" layoutX="761.0" layoutY="464.0" mnemonicParsing="false" onAction="#annuler" prefHeight="44.0" prefWidth="90.0" text="Annuler" textFill="#f87205" visible="false">
+         <font>
+            <Font size="17.0" />
+         </font></Button>
+      <Label fx:id="valide2" layoutX="862.0" layoutY="203.0" textFill="#ee0808" />
+      <Label fx:id="valide3" layoutX="1083.0" layoutY="203.0" textFill="#ee0808" />
+      <Label fx:id="valide4" layoutX="640.0" layoutY="272.0" textFill="#ee0808" />
+      <Label fx:id="valide5" layoutX="865.0" layoutY="273.0" textFill="#ee0808" />
+      <Label fx:id="valide6" layoutX="1084.0" layoutY="272.0" textFill="#ee0808" />
+      <Label fx:id="valide1" layoutX="640.0" layoutY="203.0" textFill="#ee0808" />
+   </children>
+</AnchorPane>

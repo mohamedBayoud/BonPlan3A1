@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuChoix1Controller">
+   <children>
+      <ImageView fitHeight="717.0" fitWidth="1278.0" layoutX="1.0" layoutY="1.0">
+         <image>
+            <Image url="@../Images/bohemerupture.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="modifierR" layoutX="730.0" layoutY="337.0" mnemonicParsing="false" onAction="#modifierR" prefHeight="89.0" prefWidth="353.0" text="Modifier un resto ">
+         <font>
+            <Font size="35.0" />
+         </font></Button>
+      <Button fx:id="ajouterR" layoutX="275.0" layoutY="338.0" mnemonicParsing="false" onAction="#ajouterR" prefHeight="89.0" prefWidth="353.0" text="Ajouter un resto ">
+         <font>
+            <Font size="33.0" />
+         </font></Button>
+      <Button fx:id="retour" layoutX="29.0" layoutY="674.0" mnemonicParsing="false" onAction="#retour" text="retour" />
+      <Button fx:id="logout" layoutX="1131.0" layoutY="26.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="128.0" text="Se déconnecter" />
+      <TextField fx:id="email" layoutX="136.0" layoutY="47.0" visible="false" />
+      <TextField fx:id="role" layoutX="136.0" layoutY="47.0" visible="false" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EventplaneurAjouController">
+   <children>
+      <ImageView fitHeight="698.0" fitWidth="1287.0" layoutX="-2.0">
+         <image>
+            <Image url="@../Images/gnrique-final.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="valide2" layoutX="282.0" layoutY="433.0" prefHeight="39.0" prefWidth="252.0" textFill="#f8ac30">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="valide3" layoutX="273.0" layoutY="486.0" prefHeight="39.0" prefWidth="252.0" textFill="#f8ac30">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="valide1" layoutX="312.0" layoutY="327.0" prefHeight="39.0" prefWidth="252.0" textFill="#f8ac30">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="valide" layoutX="297.0" layoutY="151.0" prefHeight="39.0" prefWidth="252.0" textFill="#f8ac30">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="ajoutEvent" blendMode="HARD_LIGHT" layoutX="262.0" layoutY="667.0" mnemonicParsing="false" onAction="#AjoutEvent" prefHeight="0.0" prefWidth="247.0" text="Ajouter Evenement" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="imagebrowse" blendMode="HARD_LIGHT" layoutX="512.0" layoutY="192.0" mnemonicParsing="false" onAction="#browse" prefHeight="0.0" prefWidth="247.0" text="Selectionner l'image" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="nbplace" layoutX="116.0" layoutY="488.0" prefHeight="30.0" prefWidth="155.0" promptText="Nombre de places">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="prix" layoutX="118.0" layoutY="417.0" prefHeight="30.0" prefWidth="155.0" promptText="Prix">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="lieu" layoutX="117.0" layoutY="331.0" prefHeight="30.0" prefWidth="155.0" promptText="Lieu">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextField>
+      <ComboBox fx:id="ComboType" layoutX="115.0" layoutY="575.0" prefWidth="150.0" promptText="Type" />
+      <ListView fx:id="imagetelecharger" layoutX="558.0" layoutY="246.0" prefHeight="29.0" prefWidth="209.0" visible="false" />
+      <TextArea fx:id="description" layoutX="550.0" layoutY="356.0" prefHeight="225.0" prefWidth="252.0" promptText="Description">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </TextArea>
+      <TextField fx:id="titre" layoutX="121.0" layoutY="155.0" prefHeight="30.0" prefWidth="155.0" promptText="Titre d'evenement">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextField>
+      <DatePicker fx:id="date" layoutX="117.0" layoutY="247.0" prefHeight="29.0" prefWidth="174.0" promptText="Date d'evenement" />
+      <Button fx:id="sedeconnecter" blendMode="HARD_LIGHT" layoutX="1121.0" layoutY="668.0" mnemonicParsing="false" onAction="#sedeconnecter" prefHeight="36.0" prefWidth="165.0" text="Se  deconnecter" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="retour" blendMode="HARD_LIGHT" layoutX="1191.0" layoutY="47.0" mnemonicParsing="false" onAction="#retour" prefHeight="17.0" prefWidth="105.0" text="Retour" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="email_client" layoutX="117.0" layoutY="50.0" prefHeight="25.0" prefWidth="75.0" visible="false" />
+      <TextField fx:id="id_client" layoutX="384.0" layoutY="50.0" prefHeight="25.0" prefWidth="97.0" visible="false" />
+      <TextField fx:id="role" layoutX="237.0" layoutY="47.0" prefHeight="25.0" prefWidth="105.0" visible="false" />
+      <TextField fx:id="textfiledimage" layoutX="525.0" layoutY="233.0" />
+   </children>
+</AnchorPane>

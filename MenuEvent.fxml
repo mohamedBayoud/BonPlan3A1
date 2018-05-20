@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="715.0" prefWidth="1264.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuEventController">
+   <children>
+      <ImageView fitHeight="734.0" fitWidth="1305.0" layoutX="-11.0" layoutY="-4.0">
+         <image>
+            <Image url="@../Images/gnrique-final.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="role" layoutX="180.0" layoutY="41.0" prefHeight="25.0" prefWidth="105.0" visible="false" />
+      <TextField fx:id="id_client" layoutX="327.0" layoutY="37.0" prefHeight="25.0" prefWidth="97.0" visible="false" />
+      <TextField fx:id="email_client" layoutX="73.0" layoutY="37.0" prefHeight="25.0" prefWidth="75.0" visible="false" />
+      <Button fx:id="retour" blendMode="HARD_LIGHT" layoutX="1115.0" layoutY="44.0" mnemonicParsing="false" onAction="#retour" prefHeight="17.0" prefWidth="105.0" text="Retour" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="sedeconnecter" blendMode="HARD_LIGHT" layoutX="1061.0" layoutY="658.0" mnemonicParsing="false" onAction="#sedeconnecter" prefHeight="36.0" prefWidth="165.0" text="Se  deconnecter" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="ConsulterEvent" blendMode="HARD_LIGHT" layoutX="481.0" layoutY="285.0" mnemonicParsing="false" onAction="#ConsulterEvent" prefHeight="61.0" prefWidth="223.0" text="Consulter Evenement" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="AjouterEvent" blendMode="HARD_LIGHT" layoutX="487.0" layoutY="423.0" mnemonicParsing="false" onAction="#AjouterEvent" prefHeight="59.0" prefWidth="219.0" text="Ajouter Evenement" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

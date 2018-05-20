@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EventAdminController">
+   <children>
+      <ImageView fitHeight="722.0" fitWidth="1280.0" layoutX="1.0" layoutY="-4.0">
+         <image>
+            <Image url="@../Images/28312172_1590294047692788_1447963538_o.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="role" layoutX="190.0" layoutY="51.0" prefHeight="25.0" prefWidth="105.0" visible="false" />
+      <TextField fx:id="id_client" layoutX="337.0" layoutY="47.0" prefHeight="25.0" prefWidth="97.0" visible="false" />
+      <TextField fx:id="email_client" layoutX="83.0" layoutY="47.0" prefHeight="25.0" prefWidth="75.0" visible="false" />
+      <Button fx:id="retour" blendMode="HARD_LIGHT" layoutX="1111.0" layoutY="656.0" mnemonicParsing="false" onAction="#retour" prefHeight="17.0" prefWidth="105.0" text="Retour" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="sedeconnecter" blendMode="HARD_LIGHT" layoutX="1071.0" layoutY="35.0" mnemonicParsing="false" onAction="#sedeconnecter" prefHeight="36.0" prefWidth="165.0" text="Se  deconnecter" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="chercher" layoutX="617.0" layoutY="182.0" prefHeight="52.0" prefWidth="359.0" promptText="Chercher" visible="false">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextField>
+      <DatePicker fx:id="DatePicker" layoutX="385.0" layoutY="184.0" onAction="#DatePicker" prefHeight="51.0" prefWidth="224.0" />
+      <TableView fx:id="tableView" layoutX="27.0" layoutY="299.0" onMouseClicked="#CLicked" prefHeight="392.0" prefWidth="676.0">
+         <columns>
+            <TableColumn fx:id="IdEventC" prefWidth="75.0" text="ID Event" />
+            <TableColumn fx:id="titreC" prefWidth="75.0" text="Titre" />
+            <TableColumn fx:id="descriptionC" prefWidth="75.0" text="Description" />
+            <TableColumn fx:id="lieuC" prefWidth="75.0" text="Lieu" />
+            <TableColumn fx:id="imageC" prefWidth="75.0" text="Image" />
+            <TableColumn fx:id="dateC" prefWidth="75.0" text="Date" />
+            <TableColumn fx:id="prixC" prefWidth="75.0" text="Prix" />
+            <TableColumn fx:id="nbplaceC" prefWidth="75.0" text="Nb Place" />
+            <TableColumn fx:id="typeC" prefWidth="75.0" text="Type" />
+         </columns>
+      </TableView>
+      <Button fx:id="valider" blendMode="HARD_LIGHT" layoutX="808.0" layoutY="333.0" mnemonicParsing="false" onAction="#valider" prefHeight="39.0" prefWidth="221.0" text="Valider Evenement" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="supprimer" blendMode="HARD_LIGHT" layoutX="807.0" layoutY="454.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="39.0" prefWidth="219.0" text="Supprimer Evenement" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="idEvent" layoutX="52.0" layoutY="262.0" prefHeight="25.0" prefWidth="105.0" visible="false" />
+   </children>
+</AnchorPane>

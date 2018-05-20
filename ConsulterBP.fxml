@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ConsulterBPController">
+   <children>
+      <ImageView fitHeight="722.0" fitWidth="1280.0" layoutX="1.0" layoutY="1.0" opacity="0.53">
+         <image>
+            <Image url="@../Images/dar-eljeld.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="chercher" layoutX="1163.0" layoutY="50.0" mnemonicParsing="false" onAction="#chercher" prefHeight="27.0" prefWidth="79.0" text="Chercher" />
+      <TextField fx:id="chercherText" layoutX="716.0" layoutY="44.0" prefHeight="41.0" prefWidth="434.0" promptText="Chercher un hotel" />
+      <Label fx:id="adresseL" layoutX="982.0" layoutY="205.0" textFill="#1f025e">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="villeL" layoutX="982.0" layoutY="170.0" textFill="#1d0072">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="descriptionL" layoutX="675.0" layoutY="402.0" textFill="#100172">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="nomL" layoutX="978.0" layoutY="119.0" textFill="#f86b06">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextField fx:id="idBP" layoutX="579.0" layoutY="42.0" prefHeight="27.0" prefWidth="201.0" visible="false" />
+      <ImageView fx:id="imgView" fitHeight="259.0" fitWidth="283.0" layoutX="665.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" />
+      <TableView fx:id="tableView" layoutX="60.0" layoutY="89.0" onMouseClicked="#CLicked" prefHeight="584.0" prefWidth="554.0">
+         <columns>
+            <TableColumn fx:id="nom" prefWidth="113.36532592773438" text="Nom" />
+            <TableColumn fx:id="photo" prefWidth="72.0" text="Photo" />
+            <TableColumn fx:id="description" minWidth="0.0" prefWidth="233.6346893310547" text="Description" />
+            <TableColumn fx:id="ville" prefWidth="60.0" text="Ville" />
+            <TableColumn fx:id="adresse" prefWidth="72.0" text="Adresse" />
+            <TableColumn fx:id="type" prefWidth="72.0" text="type" visible="false" />
+         </columns>
+      </TableView>
+      <Label fx:id="hotel" layoutX="64.0" layoutY="23.0" text="Hôtel" textFill="#ee8f09" visible="false">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Label fx:id="restaurant" layoutX="63.0" layoutY="26.0" text="Restaurant" textFill="#ee8f09" visible="false">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Button fx:id="logout" layoutX="1147.0" layoutY="13.0" mnemonicParsing="false" onAction="#logout" prefHeight="24.0" prefWidth="128.0" text="Se déconnecter" />
+      <Button fx:id="retour" layoutX="49.0" layoutY="682.0" mnemonicParsing="false" onAction="#retour" text="retour" />
+      <TableView fx:id="tableView1" layoutX="58.0" layoutY="88.0" onMouseClicked="#CLicked" prefHeight="584.0" prefWidth="554.0" visible="false">
+         <columns>
+            <TableColumn fx:id="nom1" prefWidth="113.36532592773438" text="Nom" />
+            <TableColumn fx:id="photo1" prefWidth="72.0" text="Photo" />
+            <TableColumn fx:id="description1" minWidth="0.0" prefWidth="233.6346893310547" text="Description" />
+            <TableColumn fx:id="ville1" prefWidth="60.0" text="Ville" />
+            <TableColumn fx:id="adresse1" prefWidth="72.0" text="Adresse" />
+         </columns>
+      </TableView>
+      <TextField fx:id="email" layoutX="136.0" layoutY="47.0" visible="false" />
+      <TextField fx:id="role" layoutX="136.0" layoutY="47.0" visible="false" />
+      <TextField fx:id="role1" layoutX="136.0" layoutY="47.0" visible="false" />
+   </children>
+</AnchorPane>

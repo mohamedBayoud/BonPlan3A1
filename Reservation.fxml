@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="820.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ReservationController">
+   <children>
+      <ImageView fitHeight="820.0" fitWidth="1400.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/68184730.jpg" />
+         </image></ImageView>
+      <Text fill="#eb5f09" layoutX="518.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Réservation" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="56.0" />
+         </font>
+      </Text>
+      <DatePicker fx:id="dateEntree" layoutX="180.0" layoutY="186.0" prefHeight="73.0" prefWidth="318.0" promptText="Date d'entrée" />
+      <DatePicker fx:id="DateSortie" layoutX="796.0" layoutY="190.0" prefHeight="67.0" prefWidth="296.0" promptText="date de sortie" />
+      <Button fx:id="Reserver" layoutX="1043.0" layoutY="677.0" mnemonicParsing="false" onAction="#AjouterReservation" prefHeight="45.0" prefWidth="130.0" text="Réserver" />
+      <TextField fx:id="NbrNuit" layoutX="792.0" layoutY="385.0" prefHeight="55.0" prefWidth="312.0" promptText="nombre de nuits" />
+      <TextField fx:id="nbrC" layoutX="170.0" layoutY="386.0" prefHeight="61.0" prefWidth="338.0" promptText="nombre de chambres" />
+      <Text layoutX="129.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez remplir ce formulaire : " textAlignment="CENTER" underline="true" wrappingWidth="485.2353515625">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="typeRes" layoutX="549.0" layoutY="516.0" prefHeight="63.0" prefWidth="242.0" />
+      <TextField fx:id="id_client" layoutX="314.0" layoutY="53.0" prefHeight="25.0" prefWidth="97.0" visible="false" />
+      <Button fx:id="sedeconnecter" blendMode="HARD_LIGHT" layoutX="1051.0" layoutY="57.0" mnemonicParsing="false" onAction="#sedeconnecter" prefHeight="45.0" prefWidth="188.0" text="Se  deconnecter" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="retour" layoutX="117.0" layoutY="686.0" mnemonicParsing="false" onAction="#retour" prefHeight="45.0" prefWidth="130.0" text="Retour" />
+   </children>
+</AnchorPane>

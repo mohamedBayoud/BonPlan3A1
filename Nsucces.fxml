@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.NsuccesController">
+   <children>
+      <ImageView layoutX="220.0" layoutY="20.0" opacity="0.55">
+         <image>
+            <Image url="@../Images/175x175bb.jpg" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="25.0" layoutY="20.0" opacity="0.48">
+         <image>
+            <Image url="@../Images/175x175bb.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="19.0" layoutY="77.0" prefHeight="26.0" prefWidth="362.0" text="Votre bon plan a été enrengistré avec " textFill="#306506">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="151.0" layoutY="100.0" text="succès !" textFill="#245b09">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

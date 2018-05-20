@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Payment2Controller">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/hotel-bell-customer-service-ss-1920-800x450.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="table" layoutX="89.0" layoutY="146.0" prefHeight="227.0" prefWidth="409.0">
+        <columns>
+          <TableColumn fx:id="montant" prefWidth="408.0" text="Votre solde" />
+        </columns>
+      </TableView>
+      <Button fx:id="payer" layoutX="1032.0" layoutY="604.0" mnemonicParsing="false" onAction="#payer" prefHeight="47.0" prefWidth="145.0" text="Payer" />
+      <TableView fx:id="t2" layoutX="85.0" layoutY="436.0" prefHeight="258.0" prefWidth="399.0">
+        <columns>
+          <TableColumn fx:id="nbrC" prefWidth="164.0" text="nombre de chambres" />
+          <TableColumn fx:id="nbrN" minWidth="0.0" prefWidth="232.0" text="nombre de nuits" />
+        </columns>
+      </TableView>
+      <TextField fx:id="c" layoutX="150.0" layoutY="600.0" visible="false" />
+      <TextField fx:id="n" layoutX="688.0" layoutY="602.0" visible="false" />
+      <TextField fx:id="m" layoutX="944.0" layoutY="597.0" visible="false" />
+      <Label layoutX="577.0" layoutY="49.0" prefHeight="73.0" prefWidth="347.0" text="Votre compte" textFill="#fc7013">
+         <font>
+            <Font name="System Bold" size="50.0" />
+         </font>
+      </Label>
+      <TextField fx:id="pa" layoutX="935.0" layoutY="230.0" prefHeight="59.0" prefWidth="327.0" promptText="le montant à payer" />
+      <Label layoutX="637.0" layoutY="238.0" prefHeight="33.0" prefWidth="281.0" text="Le montant à payer :" textFill="#f85402">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Button fx:id="deco" layoutX="1069.0" layoutY="52.0" mnemonicParsing="false" onAction="#deco" prefHeight="47.0" prefWidth="141.0" text="Se deconnecter" />
+   </children>
+</AnchorPane>

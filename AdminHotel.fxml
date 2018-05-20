@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdminHotelController">
+   <children>
+      <ImageView fitHeight="722.0" fitWidth="1280.0" opacity="0.53">
+         <image>
+            <Image url="@../Images/dar-eljeld.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="valider" layoutX="665.0" layoutY="597.0" mnemonicParsing="false" onAction="#valider" prefHeight="45.0" prefWidth="250.0" text="Valider" textAlignment="CENTER" textFill="#e4650a" visible="false">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Label fx:id="adresseL" layoutX="981.0" layoutY="204.0" textFill="#1f025e">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="villeL" layoutX="981.0" layoutY="169.0" textFill="#1d0072">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="descriptionL" layoutX="674.0" layoutY="401.0" textFill="#100172">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="nomL" layoutX="977.0" layoutY="118.0" textFill="#f86b06">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgView" fitHeight="259.0" fitWidth="283.0" layoutX="664.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" />
+      <TableView fx:id="tableView" layoutX="63.0" layoutY="37.0" onMouseClicked="#CLicked" prefHeight="635.0" prefWidth="554.0">
+         <columns>
+            <TableColumn fx:id="nom" prefWidth="113.36532592773438" text="Nom" />
+            <TableColumn fx:id="photo" prefWidth="72.0" text="Photo" />
+            <TableColumn fx:id="description" minWidth="0.0" prefWidth="233.6346893310547" text="Description" />
+            <TableColumn fx:id="ville" prefWidth="60.0" text="Ville" />
+            <TableColumn fx:id="adresse" prefWidth="72.0" text="Adresse" />
+         </columns>
+      </TableView>
+      <Button fx:id="supprimer" layoutX="928.0" layoutY="598.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="45.0" prefWidth="250.0" text="Supprimer" textAlignment="CENTER" textFill="#e4650a" visible="false">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <TextField fx:id="idBP" layoutX="591.0" layoutY="48.0" prefHeight="27.0" prefWidth="201.0" visible="false" />
+      <Button fx:id="consulter" layoutX="789.0" layoutY="647.0" mnemonicParsing="false" onAction="#consulter" prefHeight="45.0" prefWidth="250.0" text="Consulter " textAlignment="CENTER" textFill="#e4650a">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="retour" layoutX="43.0" layoutY="679.0" mnemonicParsing="false" onAction="#retour" text="retour" />
+      <Button fx:id="logout" layoutX="1141.0" layoutY="17.0" mnemonicParsing="false" onAction="#logout" prefHeight="24.0" prefWidth="128.0" text="Se déconnecter" />
+      <TextField fx:id="email" layoutX="136.0" layoutY="47.0" visible="false" />
+      <TextField fx:id="role" layoutX="146.0" layoutY="57.0" visible="false" />
+   </children>
+</AnchorPane>

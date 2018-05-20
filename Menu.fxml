@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuController">
+   <children>
+      <ImageView fitHeight="722.0" fitWidth="1281.0" layoutX="-3.0" layoutY="-5.0">
+         <image>
+            <Image url="@../Images/sbeitla-20042016-1.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="BonPlan" blendMode="HARD_LIGHT" layoutX="527.0" layoutY="150.0" mnemonicParsing="false" onAction="#BonPlan" prefHeight="73.0" prefWidth="241.0" text="Bon Plan" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="Evenement" blendMode="HARD_LIGHT" layoutX="128.0" layoutY="343.0" mnemonicParsing="false" onAction="#Evenement" prefHeight="73.0" prefWidth="241.0" text="Evenement" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="Promotion" blendMode="HARD_LIGHT" layoutX="557.0" layoutY="479.0" mnemonicParsing="false" onAction="#Promotion" prefHeight="73.0" prefWidth="241.0" text="Promotion" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="Transport" blendMode="HARD_LIGHT" layoutX="960.0" layoutY="346.0" mnemonicParsing="false" onAction="#Transport" prefHeight="73.0" prefWidth="241.0" text="Transport" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="role" layoutX="164.0" layoutY="50.0" prefHeight="25.0" prefWidth="105.0" visible="false" />
+      <TextField fx:id="id_client" layoutX="280.0" layoutY="50.0" prefHeight="25.0" prefWidth="97.0" visible="false" />
+      <TextField fx:id="email_client" layoutX="75.0" layoutY="60.0" prefHeight="25.0" prefWidth="75.0" visible="false" />
+      <TextField fx:id="email_client1" layoutX="65.0" layoutY="44.0" visible="false" />
+   </children>
+</AnchorPane>
