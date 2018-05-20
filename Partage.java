@@ -3,163 +3,244 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entities;
+package com.mycompany.gui;
 
-import java.util.Date;
-import java.util.Objects;
-import javafx.beans.property.StringProperty;
+import com.codename1.components.ShareButton;
+import com.codename1.components.SpanLabel;
+import com.codename1.io.FileSystemStorage;
+import com.codename1.io.Log;
+import com.codename1.messaging.Message;
+import com.codename1.ui.AutoCompleteTextField;
+import com.codename1.ui.Button;
+import com.codename1.ui.ComboBox;
+import com.codename1.ui.Container;
+import com.codename1.ui.Dialog;
+import com.codename1.ui.Display;
+import com.codename1.ui.Form;
+import com.codename1.ui.Image;
+import com.codename1.ui.Label;
+import com.codename1.ui.TextField;
+import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.layouts.FlowLayout;
+import com.codename1.ui.list.DefaultListModel;
+import com.codename1.ui.plaf.UIManager;
+import com.codename1.ui.util.ImageIO;
+import com.mycompagny.Service.ServiceTask;
+import com.mycompagny.Service.ServcePartageHotel;
+import com.mycompany.Entite.PartageHotel;
+
+import com.mycompany.Entite.Task;
+import com.sun.webkit.ThemeClient;
+import java.util.ArrayList;
+import java.util.List;
+import com.codename1.ui.util.Resources;
+import java.io.IOException;
+import java.io.OutputStream;
+import com.codename1.share.FacebookShare;
+import com.codename1.facebook.FaceBookAccess;
+import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.events.ActionListener;
 
 /**
  *
- * @author Omar
+ * @author sana
  */
 public class Partage {
 
-    private int IdPartage;
-    private String Avis;
-    private String CommentaireAvis;
-    private int NoteCuisine;
-    private int NoteRapport;
-    private int NoteService;
-    private int NoteAmbiance;
-    private Date DateCommentaire;
+	Form f;
+	Label l1, l2, l3, l4, l5, L;
+	TextField CommentaireAvis, NoteServiceH, NoteRapportH, NoteConfortH, NotePersonnelH;
+	TextField idSupp;
+	ComboBox<Integer> Box;
+	Button btnajout, btnaff, btnDelete, Email, Share;
 
-    public Partage() {
-    }
+	Button Search;
+	TextField Note;
 
-    
-    
-    public Partage(int IdPartage) {
-        this.IdPartage = IdPartage;
-    }
+	Button btnShare;
 
-    public Partage(String CommentaireAvis) {
-        this.CommentaireAvis = CommentaireAvis;
-    }
+	SpanLabel lb;
+	Container C;
 
-    public Partage(int IdPartage, String Avis, String CommentaireAvis, int NoteCuisine, int NoteRapport, int NoteService, int NoteAmbiance) {
-        this.IdPartage = IdPartage;
-        this.Avis = Avis;
-        this.CommentaireAvis = CommentaireAvis;
-        this.NoteCuisine = NoteCuisine;
-        this.NoteRapport = NoteRapport;
-        this.NoteService = NoteService;
-        this.NoteAmbiance = NoteAmbiance;
-    }
+	private Resources theme;
 
-    public Partage(Date DateCommentaire) {
-       this.DateCommentaire=DateCommentaire;
-    }
+	public Partage() {
+		f = new Form("Partage");
+		f.getStyle().setBgColor(0xE8DCB5);
+		theme = UIManager.initFirstTheme("/theme_1");
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        return hash;
-    }
+		l1 = new Label("Votre Avis");
+		l2 = new Label("Note Service");
+		l3 = new Label("Note Rapport");
+		l4 = new Label("Note Confort");
+		l5 = new Label("Note Personnel");
+		L = new Label("Ou par Email");
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Partage other = (Partage) obj;
-        if (!Objects.equals(this.Avis, other.Avis)) {
-            return false;
-        }
-        return true;
-    }
+		CommentaireAvis = new TextField();
+		NoteServiceH = new TextField();
+		NoteRapportH = new TextField();
+		NoteConfortH = new TextField();
+		NotePersonnelH = new TextField();
 
-  
+		idSupp = new TextField();
+		Note = new TextField();
+        Note.setHint("Id");
+
+		btnajout = new Button("ajouter");
+		btnaff = new Button("Affichage");
+		btnDelete = new Button("Supprimer");
+		Search = new Button("Search");
+		Email = new Button("Email");
+		btnShare = new Button("Share");
+
+		f.add(l1);
+		f.add(CommentaireAvis);
+		f.add(l2);
+		f.add(NoteServiceH);
+		f.add(l3);
+		f.add(NoteRapportH);
+		f.add(l4);
+		f.add(NoteConfortH);
+		f.add(l5);
+		f.add(NotePersonnelH);
+		f.add(btnajout).getUnselectedStyle().setFgColor(5542241);
+		f.add(L);
+		f.add(Email);
+		f.add(btnShare);
+		f.add(btnaff);
+		f.add(idSupp);
+		f.add(btnDelete);
+
+		f.add(Search);
+		f.add(Note);
 
 
-    public int getIdPartage() {
-        return IdPartage;
-    }
+		btnajout.addActionListener((e) -> {
+			ServcePartageHotel ser = new ServcePartageHotel();
+			String a = NoteServiceH.getText();
+			int NoteService = Integer.parseInt(a);
+			String b = NoteRapportH.getText();
+			int NoteRapport = Integer.parseInt(b);
+			String c = NoteConfortH.getText();
+			int NoteConfort = Integer.parseInt(c);
+			String d = NotePersonnelH.getText();
+			int NotePersonnel = Integer.parseInt(d);
 
-    public void setIdPartage(int IdPartage) {
-        this.IdPartage = IdPartage;
-    }
+			PartageHotel t = new PartageHotel(CommentaireAvis.getText(), NoteService, NoteRapport, NoteConfort, NotePersonnel);
+			if (NoteService <= 5 && NoteRapport <= 5 && NoteConfort <= 5 && NotePersonnel <= 5) {
+				ser.ajoutAvisHotel(t);
+				Dialog.show("Succees 'ajout", "OK", "Ok", null);
 
-    public String getAvis() {
-        return Avis;
-    }
+			} else {
+				Dialog.show("Erreur", "Pas d'ajout", "Ok", null);
+			}
 
-    public void setAvis(String Avis) {
-        this.Avis = Avis;
-    }
+		});
+		Email.addActionListener((e) -> {
+			Message m = new Message("");
+			Display.getInstance().sendMessage(new String[]{""}, "Subject of message", m);
+		});
 
-    public String getCommentaireAvis() {
+		btnaff.addActionListener((e) -> {
+			AffichagePartage a = new AffichagePartage();
+			a.getF().show();
+		});
+		btnDelete.addActionListener((e) -> {
+			ServcePartageHotel ser = new ServcePartageHotel();
+			String a = idSupp.getText();
+			int id = Integer.parseInt(a);
+			ser.Supprimer(id);
+		});
+
+		Search.addActionListener((e) -> {
+			ServcePartageHotel SP=new ServcePartageHotel();
+			PartageHotel P=new PartageHotel();
+			 Form F2 = new Form(BoxLayout.y());
+            String d = Note.getText();
+            ArrayList<PartageHotel> liche = SP.ChercherCommentaire(d);
+            for (PartageHotel lis : liche) {
+                System.out.println();
+                Label aa = new Label("Avis  : " + lis.getCommentaireAvisH());
+                Label desc = new Label("Note Service  : " + lis.getNoteServiceH());
+                Label prixx = new Label("Note Rapport :" + lis.getNoteRapportH());
+                Label nbpl = new Label("Note Confort :" + lis.getNoteConfortH());
+                Label datee = new Label("Note Personnel :" + lis.getNotePersonnelH());
+                F2.add(aa);
+                F2.add(datee); 
+                F2.add(prixx);
+                F2.add(nbpl);
+                F2.add(desc);
+                
+              /*  F2.getToolbar().addCommandToLeftBar("back", null, (j) -> {
+                    AffichageEvent h = new AffichageEvent();
+                    h.getF().show();
+
+                });*/
+                F2.show();
+
+            }
+
+		});
+		btnShare.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent evt) {
+				FaceBookAccess.setClientId("1470798689671712");
+				
+				FaceBookAccess.setClientSecret("EAACEdEose0cBAIbK7P0N2Qo7m4BURJeVHkjZCITup93zQTQA55cuM9UCGsJHZAhTgL3OYPKeUjfWYZBrxdkf7aDZBm0nAj43XAxUBVmZAV0WEFYesAv4ouuJusYMWLT3HjFZC8GVw3T3Vg4NbmEGzhAKtp3G207j9SIByZCh4zcZBFFvVYI7ZAlFBD82GH34QuJEQtQLWiDHelAZDZD");
+				FaceBookAccess.setToken("EAACEdEose0cBAIbK7P0N2Qo7m4BURJeVHkjZCITup93zQTQA55cuM9UCGsJHZAhTgL3OYPKeUjfWYZBrxdkf7aDZBm0nAj43XAxUBVmZAV0WEFYesAv4ouuJusYMWLT3HjFZC8GVw3T3Vg4NbmEGzhAKtp3G207j9SIByZCh4zcZBFFvVYI7ZAlFBD82GH34QuJEQtQLWiDHelAZDZD");
+				FacebookShare fs=new FacebookShare();
+				fs.share("test");
+			}
+		});
+			/*ShareButton sb = new ShareButton();
+			sb.setText("Share Screenshot");
+			f.add(sb);
+			Image screenshot = Image.createImage(f.getWidth(), f.getHeight());
+			f.revalidate();
+			f.setVisible(true);
+			f.paintComponent(screenshot.getGraphics(), true);
+			String imageFile = FileSystemStorage.getInstance().getAppHomePath()
+					+ "screenshot.png";
+			try (OutputStream os
+					= FileSystemStorage.getInstance().openOutputStream(imageFile)) {
+				ImageIO.getImageIO().save(screenshot, os, ImageIO.FORMAT_PNG, 1);
+			} catch (IOException err) {
+				Log.e(err);
+			}
+			sb.setImageToShare(imageFile, "image/png");*/
+			
+			
+			
+			
+			
+		
+		
+		
+		
+
+	}
+
+	public Form getF() {
+		return f;
+	}
+
+	public void setF(Form f) {
+		this.f = f;
+	}
+
+	/* public TextField getTnom() {
         return CommentaireAvis;
     }
 
-    public void setCommentaireAvis(String CommentaireAvis) {
-       this.CommentaireAvis=CommentaireAvis;
-    }
-
-    public int getNoteCuisine() {
-        return NoteCuisine;
-    }
-
-    public void setCuisine(int NoteCuisine) {
-        this.NoteCuisine = NoteCuisine;
-    }
-
-	public void setNoteCuisine(int NoteCuisine) {
-		this.NoteCuisine = NoteCuisine;
+    public void setTnom(TextField CommentaireAvis) {
+        this.CommentaireAvis = CommentaireAvis;
+    }*/
+	public TextField getNote() {
+		return Note;
 	}
 
-    public int getNoteRapport() {
-        return NoteRapport;
-    }
+	public void setNote(TextField Note) {
+		this.Note = Note;
+	}
 
-    public void setNoteRapport(int NoteRapport) {
-        this.NoteRapport = NoteRapport;
-    }
-
-    public int getNoteService() {
-        return NoteService;
-    }
-
-    public void setNoteService(int NoteService) {
-        this.NoteService = NoteService;
-    }
-
-    public int getNoteAmbiance() {
-        return NoteAmbiance;
-    }
-
-    public void setNoteAmbiance(int NoteAmbiance) {
-        this.NoteAmbiance = NoteAmbiance;
-    }
-
-    public Partage(int NoteCuisine, int NoteRapport, int NoteService, int NoteAmbiance,String CommentaireAvis,Date DateCommentaire) {
-        this.CommentaireAvis = CommentaireAvis;
-        this.NoteCuisine = NoteCuisine;
-        this.NoteRapport = NoteRapport;
-        this.NoteService = NoteService;
-        this.NoteAmbiance = NoteAmbiance;
-    this.DateCommentaire=DateCommentaire;
-    }
-
-    public Date getDateCommentaire() {
-        return DateCommentaire;
-    }
-
-    public void setDateCommentaire(Date DateCommentaire) {
-        this.DateCommentaire = DateCommentaire;
-    }
-    
-    
-
-    
-    
-
-  
-   
 }
