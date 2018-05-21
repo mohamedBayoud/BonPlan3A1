@@ -40,8 +40,8 @@ public class Menu {
         a.getF().show();
         });
              Evenement.addActionListener((e)->{
-    //    EvenementGui a=new EvenementGui();
-//        a.getF().show();
+        EvenementGui a=new EvenementGui("");
+        a.getF().show();
         });
            
 		}

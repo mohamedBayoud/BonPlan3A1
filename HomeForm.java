@@ -81,8 +81,8 @@ public class HomeForm extends SideMenuBaseForm {
         //   c.add(btnaff);
         f.add(c);
         f.getToolbar().addCommandToLeftBar("back", null, (j) -> {
-            //     AffichageEvent h = new AffichageEvent();
-            //     h.getF().show();
+                AffichageBP h = new AffichageBP();
+                 h.getF().show();
 
         });
         btnajout.addActionListener((ActionEvent e) -> {

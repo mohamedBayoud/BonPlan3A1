@@ -16,6 +16,7 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE 
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
  */
+
 package com.mycompany.gui;
 
 import com.codename1.components.ToastBar;
@@ -34,8 +35,7 @@ import com.codename1.ui.util.Resources;
  * @author Shai Almog
  */
 public abstract class SideMenuBaseForm extends Form {
-
-    private Form c;
+     private Form c;
 
     public SideMenuBaseForm(String title, Layout contentPaneLayout) {
         super(title, contentPaneLayout);
@@ -51,36 +51,36 @@ public abstract class SideMenuBaseForm extends Form {
     public SideMenuBaseForm(Layout contentPaneLayout) {
         super(contentPaneLayout);
     }
-
-    public void setupSideMenu(Resources res, int x, String role) {
-
-        Partage MenuPartage = new Partage();
-        PromotionAcceuil MenuPromotion = new PromotionAcceuil();
-        // HomeForm ajoutReservation = new HomeForm();
-//          AffichageTr ajoutTransport = new AffichageTr(x);
-        //  AffichageBP h = new AffichageBP();
-        AffichageEvent afichevent = new AffichageEvent(role);
-        Image profilePic = res.getImage("user-picture.jpg");
+    
+    public void setupSideMenu(Resources res,int x,String role) {
+       
+          Partage MenuPartage=new Partage();
+		AffichagePromotion MenuPromotion=new AffichagePromotion();
+         // HomeForm ajoutReservation = new HomeForm();
+          AffichageTr ajoutTransport = new AffichageTr(x);
+          AffichageBP h = new AffichageBP();
+           AffichageEvent afichevent = new AffichageEvent(role);
+        Image profilePic = res.getImage("bp.png");
         Image mask = res.getImage("round-mask.png");
         mask = mask.scaledHeight(mask.getHeight() / 4 * 3);
-        //profilePic = profilePic.fill(mask.getWidth(), mask.getHeight());
+        profilePic = profilePic.fill(mask.getWidth(), mask.getHeight());
         Label profilePicLabel = new Label("Bon Plan", profilePic, "SideMenuTitle");
         profilePicLabel.setMask(mask.createMask());
-        // c = new EvenementGui(res);
+       // c = new EvenementGui(res);
         Container sidemenuTop = BorderLayout.center(profilePicLabel);
         sidemenuTop.setUIID("SidemenuTop");
-
+        
         getToolbar().addComponentToSideMenu(sidemenuTop);
-        //   getToolbar().addMaterialCommandToSideMenu("  Bon Plan", FontImage.MATERIAL_ACCESS_TIME,  e ->h.getF().show());
-        //    getToolbar().addMaterialCommandToSideMenu("  Transport", FontImage.MATERIAL_ACCESS_TIME,  e ->ajoutTransport.getF().show());
-        getToolbar().addMaterialCommandToSideMenu("  Dashboard", FontImage.MATERIAL_DASHBOARD, e -> showOtherForm(res));
-        // getToolbar().addMaterialCommandToSideMenu("  Réservation", FontImage.MATERIAL_ACCESS_TIME,  e ->ajoutReservation.getF().show());
-        getToolbar().addMaterialCommandToSideMenu("  Evenement", FontImage.MATERIAL_ACCESS_TIME, e -> afichevent.getF().show());
-        getToolbar().addMaterialCommandToSideMenu("  Partage", FontImage.MATERIAL_ACCESS_TIME, e -> MenuPartage.getF().show());
-        getToolbar().addMaterialCommandToSideMenu("  Promotion", FontImage.MATERIAL_ACCESS_TIME, e -> MenuPromotion.getF().show());
-        getToolbar().addMaterialCommandToSideMenu("  Account Settings", FontImage.MATERIAL_SETTINGS, e -> showOtherForm(res));
-        getToolbar().addMaterialCommandToSideMenu("  Logout", FontImage.MATERIAL_EXIT_TO_APP, e -> new LoginForm(res).show());
+        getToolbar().addMaterialCommandToSideMenu("  Bon Plan", FontImage.MATERIAL_ACCESS_TIME,  e ->h.getF().show());
+        getToolbar().addMaterialCommandToSideMenu("  Transport", FontImage.MATERIAL_ACCESS_TIME,  e ->ajoutTransport.getF().show());
+       // getToolbar().addMaterialCommandToSideMenu("  Dashboard", FontImage.MATERIAL_DASHBOARD,  e -> showOtherForm(res));
+       // getToolbar().addMaterialCommandToSideMenu("  Réservation", FontImage.MATERIAL_ACCESS_TIME,  e ->ajoutReservation.getF().show());
+       getToolbar().addMaterialCommandToSideMenu("  Evenement", FontImage.MATERIAL_ACCESS_TIME,  e -> afichevent.getF().show());
+       getToolbar().addMaterialCommandToSideMenu("  Partage", FontImage.MATERIAL_ACCESS_TIME,  e ->MenuPartage.getF().show());
+        getToolbar().addMaterialCommandToSideMenu("  Promotion", FontImage.MATERIAL_ACCESS_TIME,  e ->MenuPromotion.getF().show());
+       //getToolbar().addMaterialCommandToSideMenu("  Account Settings", FontImage.MATERIAL_SETTINGS,  e -> showOtherForm(res));
+        getToolbar().addMaterialCommandToSideMenu("  Logout", FontImage.MATERIAL_EXIT_TO_APP,  e -> new LoginForm(res).show());
     }
-
+    
     protected abstract void showOtherForm(Resources res);
 }

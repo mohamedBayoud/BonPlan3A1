@@ -54,7 +54,7 @@ public class StatsForm extends SideMenuBaseForm {
         super(new BorderLayout());
         Toolbar tb = getToolbar();
         tb.setTitleCentered(false);
-        Image profilePic = res.getImage("175x175bb.jpg");        
+        Image profilePic = res.getImage("user-picture.jpg");        
         Image tintedImage = Image.createImage(profilePic.getWidth(), profilePic.getHeight());
         Graphics g = tintedImage.getGraphics();
         g.drawImage(profilePic, 0, 0);
@@ -127,7 +127,7 @@ public class StatsForm extends SideMenuBaseForm {
         add(BorderLayout.CENTER, 
                 enclosure);
         
-//        setupSideMenu(res);
+        setupSideMenu(res,0,"");
     }
 
     private Image colorCircle(int color) {
@@ -141,7 +141,7 @@ public class StatsForm extends SideMenuBaseForm {
     
     @Override
     protected void showOtherForm(Resources res) {
-     //   new ProfileForm(res).show();
+        new ProfileForm(res,0,"").show();
     }
 
     private XYMultipleSeriesRenderer createChartMultiRenderer() {

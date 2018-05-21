@@ -21,29 +21,36 @@ import com.codename1.ui.Label;
 import com.codename1.ui.TextField;
 import com.codename1.ui.URLImage;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.spinner.Picker;
+import com.codename1.ui.util.Resources;
 
 import com.mycompagny.Service.serviceReservation;
 import com.mycompagny.Service.serviceTransport;
 import com.mycompany.Entite.Reservation;
 import com.mycompany.Entite.Task;
 import com.mycompany.Entite.Transport;
+import com.mycompany.myapp.MyApplication;
+import static com.mycompany.myapp.MyApplication.theme;
 import com.sun.mail.smtp.SMTPTransport;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
-import javax.mail.Message.RecipientType;
+import javafx.scene.image.ImageView;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMessage.RecipientType;
+
 
 /**
  *
  * @author sana
  */
 public class AffichageTr {
+    private Resources theme;
     Form f,F5;
     SpanLabel lb;
     Label ville;
@@ -58,12 +65,14 @@ public class AffichageTr {
     TextField villeArrive;
     TextField villeDepart;
     Database db;
-    public AffichageTr()  {  
+    
+    public AffichageTr(int idp)  {  
         try {
             db = Database.openOrCreate("transport.db");
             db.execute("create table if not exists prefere (villedepart TEXT, villearrivee TEXT,datedepart TEXT);\"");
         } catch (IOException ex) {
         }
+        theme = UIManager.initFirstTheme("/theme_1");
         f = new Form();
         lb = new SpanLabel("");
         champs = new TextField();
@@ -77,31 +86,72 @@ public class AffichageTr {
         //f.add(lb);
         f.add(champs);
         f.add(chercher);
+        Label liste = new Label("La liste des transports");
+        f.add(liste);
+        //f.add(image);
+        champs.setHint("Taper votre recherche");  champs.getUnselectedStyle().setFgColor(000000);
         serviceTransport sr=new serviceTransport();
         ArrayList<Transport> lis=sr.affichageTransport();
                 for (Transport li : lis) {
+                    Container c3 = new Container(BoxLayout.y());
+                Container c2 = new Container(BoxLayout.x());
+                Label aa = new Label();
+                ImageViewer image = new ImageViewer(theme.getImage("voiture.png").fill(50, 50));
+                c2.add(li.getVilleDepart());
+                c2.add(image);
+                c2.add(li.getVilleArrive());
+                c3.add(c2);
+                f.add(c3);
+             String s=li.getVilleDepart();
+             f.getToolbar().addCommandToLeftBar("+", null, (j) -> {
+                    HomeFormTr h = new HomeFormTr(idp);
+                    h.getF().show();
 
-           Label aa = new Label();
-           aa.setText( li.getVilleDepart()+ " ------------------>"+li.getVilleArrive() );
-           
-           String s=li.getVilleDepart();
-            f.add(aa);
+                  });
             /***********************detail*********************/
-            aa.addPointerPressedListener((l) -> {
+            
+            c2.addPointerPressedListener((l) -> {
             serviceTransport ser = new serviceTransport();
             Transport tr = new Transport();
             tr.setVilleDepart(li.getVilleDepart());
             ArrayList<Transport> liss=ser.chercherTransport(tr);
             Form f = new Form(BoxLayout.y());
-            Label Depart = new Label("Depart :" + li.getVilleDepart());
-            Label Arrivee = new Label("Arrivee :" + li.getVilleArrive());
-            Label hDepart = new Label("heure de Depart :" + li.getHeureDepart());
-            Label hArrivee = new Label("heure d'arrivee :" + li.getVilleArrive());
+             Container a = new Container(BoxLayout.y());
+                Container a1 = new Container(BoxLayout.x());
+                ImageViewer image1 = new ImageViewer(theme.getImage("voiture.png").fill(50, 50));
+                a1.add("                   "+li.getVilleDepart()).getUnselectedStyle().setFgColor(000000);
+                a1.add(image1);
+                a1.add(li.getVilleArrive()).getUnselectedStyle().setFgColor(000000);
+                a.add(a1);
+                f.add(a);
+           
+            Label hDepart = new Label("heure de Depart :" + li.getHeureDepart()+"h");
+			hDepart.getUnselectedStyle().setFgColor(000000);
+            Label hArrivee = new Label("heure d'arrivee :" + li.getHeureArrive()+"h");
+			hArrivee.getUnselectedStyle().setFgColor(000000);
             Label nbrp = new Label("nombre de place dispo :" + li.getNbrPlaceDispo());
-            Label prix = new Label("prix place :" + li.getPrixPersonne());
+            nbrp.getUnselectedStyle().setFgColor(000000);
+			Label prix = new Label("prix place :" + li.getPrixPersonne());
+			prix.getUnselectedStyle().setFgColor(000000);
             Label date = new Label("date depart :" + li.getDateDeparts());
-            f.add(Depart);
-            f.add(Arrivee);
+			date.getUnselectedStyle().setFgColor(000000);
+            int x=li.getNbrPlaceDispo();
+            if (li.getIdPersonne()==idp)
+            {
+                participer.setVisible(false);
+            }
+            else if (li.getIdPersonne()!=idp){
+                participer.setVisible(true);
+                supprimer.setVisible(false);
+                modifier.setVisible(false);
+                if (x==0)
+            {
+                participer.setVisible(false);
+            }
+                 }
+            
+            //f.add(Depart);
+            //f.add(Arrivee);
             f.add(hDepart);
             f.add(hArrivee);
             f.add(nbrp);
@@ -111,22 +161,21 @@ public class AffichageTr {
             f.add(participer);
             f.add(modifier);
             
-              f.getToolbar().addCommandToLeftBar("back", null, (j) -> {
-                    AffichageTr h = new AffichageTr();
+              f.getToolbar().addCommandToLeftBar("retour", null, (j) -> {
+                    AffichageTr h = new AffichageTr(idp);
                     h.getF().show();
 
                 });
               
-                f.getToolbar().addCommandToOverflowMenu("Ajouter Au Liste", null, (ee) -> {
+                f.getToolbar().addCommandToOverflowMenu("Ajouter à ma liste", null, (ee) -> {
                     try {
                         db.execute("insert into prefere (villearrivee, villedepart , datedepart) values ('" + li.getVilleDepart()+ "', '" + li.getVilleArrive()+ "', '" + li.getDateDeparts()+ "');");
                         System.out.println("element inser");
                     } catch (IOException ex) {
                         System.out.println(ex);
                     }
-
                 });
-                f.getToolbar().addCommandToOverflowMenu("Liste des participation", null, (ee) -> {
+                f.getToolbar().addCommandToOverflowMenu("Ma liste", null, (ee) -> {
                      F5 = new Form(BoxLayout.y());
                     try {
                         Cursor cur = db.executeQuery("select * from prefere");
@@ -145,7 +194,6 @@ public class AffichageTr {
                                     System.out.println(ex);
                                 }
                             });
-
                         }
 
                     } catch (IOException ex) {
@@ -165,13 +213,15 @@ public class AffichageTr {
                 supprimer.addActionListener((e) -> {
                     
                     ser.supprimer(li.getId_transport());
+                    AffichageTr h = new AffichageTr(idp);
+                    h.getF().show();
                     });
                 /**************partciper**************/
                 participer.addActionListener((e) -> {
-                    ser.Participer(li.getId_transport());
-                    System.out.println("bech  yod5el");
-                    sendMail();
-                    System.out.println("done");
+                    serviceTransport ser1 = new serviceTransport();
+                    ser1.sendMail();
+                    ser.Participer(li.getId_transport(),idp);
+                    
                     });
                 /**************modfier**************/
                 modifier.addActionListener((e) -> {
@@ -221,7 +271,7 @@ public class AffichageTr {
       ser.modifierTransport(li.getId_transport(), t);
                     });
                  f1.getToolbar().addCommandToLeftBar("back", null, (j) -> {
-                    AffichageTr h = new AffichageTr();
+                    AffichageTr h = new AffichageTr(idp);
                     h.getF().show();
 
                   });f1.show();});
@@ -237,16 +287,43 @@ public class AffichageTr {
             serviceTransport ser = new serviceTransport();
             Transport tr = new Transport();
             tr.setVilleDepart(champs.getText());
-        ArrayList<Transport> li=ser.chercherTransport(tr);
         f.add(lb);
-        lb.setText(li.toString());
-        f.getToolbar().addCommandToLeftBar("back", null, (j) -> {
-                    AffichageTr h = new AffichageTr();
+        //lb.setText(li.toString());
+		ArrayList<Transport> l=ser.chercherTransport(tr);
+                for (Transport li : l) {
+
+           Label aa = new Label();
+		 
+           Container c3 = new Container(BoxLayout.y());
+                Container c2 = new Container(BoxLayout.x());
+                ImageViewer image = new ImageViewer(theme.getImage("voiture.png").fill(50, 50));
+                c2.add(li.getVilleDepart());
+                c2.add(image);
+                c2.add(li.getVilleArrive());
+                c3.add(c2);
+                f.add(c3);
+                
+        f.getToolbar().addCommandToRightBar("back", null, (j) -> {
+                    AffichageTr h = new AffichageTr(idp);
                     h.getF().show();
 
                 });
-                f.show();
+		f.getToolbar().addCommandToLeftBar("+", null, (j) -> {
+                    HomeFormTr h = new HomeFormTr(idp);
+					System.out.println(idp);
+					System.out.println("frrr");
+                    h.getF().show();
+
+                  });
+		
+                f.show();}
         });
+	f.getToolbar().addCommandToRightBar("retour", null, (r) -> {
+            ProfileForm p = new ProfileForm(MyApplication.theme, idp, "");
+            p.show();
+            // p.show();
+
+        });	 
          
     }
 
@@ -257,34 +334,6 @@ public class AffichageTr {
     public void setF(Form f) {
         this.f = f;
     }
-    public void sendMail()
-    {
-        try {
-               
-                Properties props = new java.util.Properties();
-                props.put("mail.transport.protocol", "smtp");
-                props.put("mail.smtps.host", "smtp.gmail.com");
-                props.put("mail.smtps.auth", "true");
-                Session session = Session.getInstance(props, null);
-                
-                MimeMessage msg = new MimeMessage(session);
-                
-                msg.setFrom(new InternetAddress("Mot de passe <my_email@myDomain.com>"));
-                msg.setRecipients(RecipientType.TO, "medali.ayedi@esprit.tn");
-                msg.setSubject("ESPRIT Cupcake: "+"Votre commande est comfirmé");
-                msg.setSentDate(new Date(System.currentTimeMillis()));
-                
-                msg.setText("Commande passé");
-                SMTPTransport st = (SMTPTransport)session.getTransport("smtps");
-                st.connect("smtp.gmail.com","medali.ayedi@esprit.tn","Medalicss1231996");
-                st.sendMessage(msg, msg.getAllRecipients());
-                
-                System.out.println("ServerResponse : " + st.getLastServerResponse());
-          
-            } catch (MessagingException ex) {
-            }
-                            
-    }
-
+    
 
 }

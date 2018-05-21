@@ -74,7 +74,7 @@ public class EvenementGui {
         val.addConstraint(prix, new RegexConstraint(testprix, "3abbi"));
         type = new TextField();
         type.setHint("type");
-        val.addConstraint(type, new RegexConstraint(testtitre, "3abbi"));
+       // val.addConstraint(type, new RegexConstraint(testtitre, "3abbi"));
         nbPlace = new TextField();
         nbPlace.setHint("nbPlace");
         val.addConstraint(nbPlace, new RegexConstraint(testprix, "3abbi"));
@@ -99,7 +99,7 @@ public class EvenementGui {
         f.add(nbPlace);
         //  f.add(image);
         f.add(btnajout);
-         f.add(btnaff);
+        // f.add(btnaff);
         Button imgBtn = new Button("parcourir");
         f.add(imgBtn);
         imgBtn.addActionListener(eok -> {
@@ -124,7 +124,7 @@ public class EvenementGui {
             }, Display.GALLERY_IMAGE);
         });
         btnajout.addActionListener((ActionEvent e) -> {
-            FileUploader fc = new FileUploader("localhost/symphonie/web");
+            FileUploader fc = new FileUploader("localhost/BonPlan1/web");
 
             String fileNameInServer;
             try {
@@ -142,7 +142,7 @@ public class EvenementGui {
                 float pri = Float.parseFloat(c);
                 int v = 0;
                 Evenement t = new Evenement(connectedUser.getIdPersonne(), desc, nbp, tit, pri, lieu.getText(), fileNameInServer, type.getText(), dateE.getDate(), v);
-                if (val.isValid() && titre.getText().trim().length() > 0 || description.getText().trim().length() > 0 || prix.getText().trim().length() > 0 || type.getText().trim().length() > 0 || nbPlace.getText().trim().length() > 0) {
+                if (val.isValid() && titre.getText().trim().length() > 0 || description.getText().trim().length() > 0 || prix.getText().trim().length() > 0 || nbPlace.getText().trim().length() > 0) {
                     ser.ajoutEvenement(t);
                //     AffichageEvent a = new AffichageEvent(role);
                  //   a.getF().show();
@@ -156,6 +156,11 @@ public class EvenementGui {
             }
 
         });
+		 f.getToolbar().addCommandToLeftBar("retour", null, (j) -> {
+                       AffichageEvent a = new AffichageEvent(role);
+            a.getF().show();
+
+                    });
         btnaff.addActionListener((e) -> {
             AffichageEvent a = new AffichageEvent(role);
             a.getF().show();

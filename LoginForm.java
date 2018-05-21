@@ -41,6 +41,7 @@ import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.util.Resources;
 import com.mycompany.Entite.User;
+import static com.mycompany.gui.authentification.connectedUser;
 import java.io.IOException;
 import java.util.Map;
 
@@ -57,17 +58,17 @@ public class LoginForm extends Form {
         super(new BorderLayout(BorderLayout.CENTER_BEHAVIOR_CENTER_ABSOLUTE));
         setUIID("LoginForm");
         Container welcome = FlowLayout.encloseCenter(
-                new Label("    Welcome ", "WelcomeWhite")
+                new Label("    Bienvenue ", "BienvenueWhite")
         );
         
         getTitleArea().setUIID("Container");
         
         Image profilePic = theme.getImage("bp.png");
         Image mask = theme.getImage("round-mask.png");
-//        profilePic = profilePic.fill(mask.getWidth(), mask.getHeight());
+        profilePic = profilePic.fill(mask.getWidth(), mask.getHeight());
         Label profilePicLabel = new Label(profilePic, "ProfilePic");
         profilePicLabel.setMask(mask.createMask());
-        
+		
         TextField login = new TextField( TextField.EMAILADDR) ;
         TextField password = new TextField( TextField.PASSWORD) ;
         login.getAllStyles().setMargin(LEFT, 0);
@@ -95,7 +96,7 @@ public class LoginForm extends Form {
                     Dialog.show("champ obligatoire", "vous devez taper votre password!!", "OK", "");
 
                 }
-                con.setUrl("http://localhost/symphonie/web/app_dev.php/Evenement/login?login=" + name + "&mdp=" + pswd);
+                con.setUrl("http://localhost/BonPlan1/web/app_dev.php/api/login?login=" + name + "&mdp=" + pswd);
 
                 con.addResponseListener(new ActionListener<NetworkEvent>() {
                     @Override
@@ -119,7 +120,7 @@ public class LoginForm extends Form {
                                 connectedUser.setRole(users.get("role").toString());
                                 System.out.println(connectedUser.toString() + "+++++++++////+++++++++"+connectedUser.getIdPersonne());
                                 userId = (int) Float.parseFloat(users.get("idpersonne").toString());
-                                new ProfileForm(theme,connectedUser.getIdPersonne(),connectedUser.getRole()).show();
+                                new ProfileForm(theme,userId,connectedUser.getRole()).show();
                                 
                             }
 
@@ -134,8 +135,8 @@ public class LoginForm extends Form {
         });
         
         
-        Button createNewAccount = new Button("CREATE NEW ACCOUNT");
-        createNewAccount.setUIID("CreateNewAccountButton");
+        Button createNewAccount = new Button("");
+        createNewAccount.setUIID("");
         
         // We remove the extra space for low resolution devices so things fit better
         Label spaceLabel;

@@ -38,6 +38,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import com.codename1.share.FacebookShare;
 import com.codename1.facebook.FaceBookAccess;
+import com.codename1.ui.Slider;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 
@@ -48,11 +49,13 @@ import com.codename1.ui.events.ActionListener;
 public class Partage {
 
 	Form f;
-	Label l1, l2, l3, l4, l5, L;
+	Label l1, l2, l3, l4, l5, L,Lb;
 	TextField CommentaireAvis, NoteServiceH, NoteRapportH, NoteConfortH, NotePersonnelH;
-	TextField idSupp;
+	Slider idSupp;
 	ComboBox<Integer> Box;
 	Button btnajout, btnaff, btnDelete, Email, Share;
+    String Qualite;
+	float Moy;
 
 	Button Search;
 	TextField Note;
@@ -65,8 +68,8 @@ public class Partage {
 	private Resources theme;
 
 	public Partage() {
-		f = new Form("Partage");
-		f.getStyle().setBgColor(0xE8DCB5);
+		f = new Form("Partage",BoxLayout.y());
+		
 		theme = UIManager.initFirstTheme("/theme_1");
 
 		l1 = new Label("Votre Avis");
@@ -77,21 +80,30 @@ public class Partage {
 		L = new Label("Ou par Email");
 
 		CommentaireAvis = new TextField();
+		CommentaireAvis.getUnselectedStyle().setFgColor(000000);
 		NoteServiceH = new TextField();
+		NoteServiceH.getUnselectedStyle().setFgColor(000000);
 		NoteRapportH = new TextField();
+		NoteRapportH.getUnselectedStyle().setFgColor(000000);
 		NoteConfortH = new TextField();
+		NoteConfortH.getUnselectedStyle().setFgColor(000000);
 		NotePersonnelH = new TextField();
-
-		idSupp = new TextField();
+		NotePersonnelH.getUnselectedStyle().setFgColor(000000);
+        Lb=new Label("Note : 0");
+		idSupp=new Slider();
+		idSupp.setMinValue(0);
+        idSupp.setMaxValue(5);
+        idSupp.setEditable(true);
 		Note = new TextField();
-        Note.setHint("Id");
-
-		btnajout = new Button("ajouter");
-		btnaff = new Button("Affichage");
+		Note.getUnselectedStyle().setFgColor(000000);
+        Note.setHint("Tapez ici Pour faire votre recherche");
+        
+		btnajout = new Button("Partager");
+		btnaff = new Button("Liste des Hotels");
 		btnDelete = new Button("Supprimer");
-		Search = new Button("Search");
+		Search = new Button("Chercher");
 		Email = new Button("Email");
-		btnShare = new Button("Share");
+		//btnShare = new Button("Share");
 
 		f.add(l1);
 		f.add(CommentaireAvis);
@@ -106,13 +118,13 @@ public class Partage {
 		f.add(btnajout).getUnselectedStyle().setFgColor(5542241);
 		f.add(L);
 		f.add(Email);
-		f.add(btnShare);
-		f.add(btnaff);
+		//f.add(btnShare);
+		//f.add(btnaff);
+		f.add(Lb);
 		f.add(idSupp);
 		f.add(btnDelete);
-
-		f.add(Search);
 		f.add(Note);
+		f.add(Search);
 
 
 		btnajout.addActionListener((e) -> {
@@ -132,7 +144,7 @@ public class Partage {
 				Dialog.show("Succees 'ajout", "OK", "Ok", null);
 
 			} else {
-				Dialog.show("Erreur", "Pas d'ajout", "Ok", null);
+				Dialog.show("Erreur", "Pas d'ajout,Tu dois ajouter une note entre 0 et 5", "Ok", null);
 			}
 
 		});
@@ -141,17 +153,31 @@ public class Partage {
 			Display.getInstance().sendMessage(new String[]{""}, "Subject of message", m);
 		});
 
-		btnaff.addActionListener((e) -> {
-			AffichagePartage a = new AffichagePartage();
+		/*btnaff.addActionListener((e) -> {
+			
+		});*/
+		
+		f.getToolbar().addCommandToOverflowMenu("Liste des Hotels", null, (ev)-> {
+
+		AffichagePartage a = new AffichagePartage();
 			a.getF().show();
 		});
-		btnDelete.addActionListener((e) -> {
-			ServcePartageHotel ser = new ServcePartageHotel();
-			String a = idSupp.getText();
-			int id = Integer.parseInt(a);
-			ser.Supprimer(id);
+		
+		idSupp.addActionListener((e)->{
+			Lb.setText("Note Service:"+idSupp.getProgress());
 		});
-
+		
+		btnDelete.addActionListener((e) -> {
+			
+			ServcePartageHotel ser = new ServcePartageHotel();
+			/*String a = idSupp.get
+			int id = Integer.parseInt(a);*/
+			ser.Supprimer(idSupp.getProgress());
+			Dialog.show("Succes", "Avis Supprimer avec Succes", "ok", null);
+			
+		});
+      
+		
 		Search.addActionListener((e) -> {
 			ServcePartageHotel SP=new ServcePartageHotel();
 			PartageHotel P=new PartageHotel();
@@ -165,11 +191,16 @@ public class Partage {
                 Label prixx = new Label("Note Rapport :" + lis.getNoteRapportH());
                 Label nbpl = new Label("Note Confort :" + lis.getNoteConfortH());
                 Label datee = new Label("Note Personnel :" + lis.getNotePersonnelH());
+				Label del = new Label("********************************************");
+
                 F2.add(aa);
                 F2.add(datee); 
                 F2.add(prixx);
                 F2.add(nbpl);
                 F2.add(desc);
+				F2.add(del);
+				
+				
                 
               /*  F2.getToolbar().addCommandToLeftBar("back", null, (j) -> {
                     AffichageEvent h = new AffichageEvent();
@@ -181,16 +212,57 @@ public class Partage {
             }
 
 		});
+		/*
 		btnShare.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent evt) {
 				FaceBookAccess.setClientId("1470798689671712");
 				
 				FaceBookAccess.setClientSecret("EAACEdEose0cBAIbK7P0N2Qo7m4BURJeVHkjZCITup93zQTQA55cuM9UCGsJHZAhTgL3OYPKeUjfWYZBrxdkf7aDZBm0nAj43XAxUBVmZAV0WEFYesAv4ouuJusYMWLT3HjFZC8GVw3T3Vg4NbmEGzhAKtp3G207j9SIByZCh4zcZBFFvVYI7ZAlFBD82GH34QuJEQtQLWiDHelAZDZD");
-				FaceBookAccess.setToken("EAACEdEose0cBAIbK7P0N2Qo7m4BURJeVHkjZCITup93zQTQA55cuM9UCGsJHZAhTgL3OYPKeUjfWYZBrxdkf7aDZBm0nAj43XAxUBVmZAV0WEFYesAv4ouuJusYMWLT3HjFZC8GVw3T3Vg4NbmEGzhAKtp3G207j9SIByZCh4zcZBFFvVYI7ZAlFBD82GH34QuJEQtQLWiDHelAZDZD");
+				FaceBookAccess.setToken("EAACEdEose0cBAC5rJQtZCmafVZANCkmaZB3ZAQT3zCr22slqwRqwg5jWXj6FRGwtMhkLxNJTTfGhZAQemgZB14J3zgbHjFOzZCbUZCApt7Mjl9RleJsqFmqmAL42JQfqIQllbm8KRFueZAd3WVNlz1GUQ4bKo2fZAtX5EbuJ12SyJHts2U1Yf0u1UZBUMKcaA8lXs7PICQejWVbFgZDZD");
 				FacebookShare fs=new FacebookShare();
-				fs.share("test");
+				fs.share("");
 			}
+		});
+		
+		*/
+		f.getToolbar().addCommandToLeftBar("", theme.getImage("icons8-facebook-50.png"), e -> {
+			
+			    FaceBookAccess.setClientId("1470798689671712");
+				FaceBookAccess.setClientSecret("EAACEdEose0cBAIbK7P0N2Qo7m4BURJeVHkjZCITup93zQTQA55cuM9UCGsJHZAhTgL3OYPKeUjfWYZBrxdkf7aDZBm0nAj43XAxUBVmZAV0WEFYesAv4ouuJusYMWLT3HjFZC8GVw3T3Vg4NbmEGzhAKtp3G207j9SIByZCh4zcZBFFvVYI7ZAlFBD82GH34QuJEQtQLWiDHelAZDZD");
+				FaceBookAccess.setToken("EAACEdEose0cBAC5rJQtZCmafVZANCkmaZB3ZAQT3zCr22slqwRqwg5jWXj6FRGwtMhkLxNJTTfGhZAQemgZB14J3zgbHjFOzZCbUZCApt7Mjl9RleJsqFmqmAL42JQfqIQllbm8KRFueZAd3WVNlz1GUQ4bKo2fZAtX5EbuJ12SyJHts2U1Yf0u1UZBUMKcaA8lXs7PICQejWVbFgZDZD");
+				FacebookShare fs=new FacebookShare();
+				PartageHotel P=new PartageHotel();
+				ServcePartageHotel ser=new ServcePartageHotel();
+				 ArrayList<PartageHotel> lis=ser.getList2();
+		 for (PartageHotel lis1 : lis) {
+                System.out.println();
+				Moy=(lis1.getNoteServiceH()+lis1.getNoteRapportH()+lis1.getNoteConfortH()+lis1.getNotePersonnelH())/4;
+				if (Moy>0 && Moy<=1)
+				{
+				 Qualite="Horrible";
+			    }
+				if (Moy>1 && Moy<=2)
+				{
+				 Qualite="Mediocre";
+			    }
+				if (Moy>2 && Moy<=3)
+				{
+				 Qualite="Moyen";
+			    }
+				if (Moy>3 && Moy<=4)
+				{
+				 Qualite="Tres Bon";
+			    }
+				if (Moy>4 && Moy<=5)
+				{
+				 Qualite="Excellent";
+			    }
+								
+
+			   fs.share("Venez vistez notre Bon Plan.Numero°:"+lis1.getNomHotel()+"Note:"+Qualite);
+		 }
+			
 		});
 			/*ShareButton sb = new ShareButton();
 			sb.setText("Share Screenshot");

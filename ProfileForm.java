@@ -45,9 +45,9 @@ public class ProfileForm extends SideMenuBaseForm {
         super(BoxLayout.y());
         Toolbar tb = getToolbar();
         tb.setTitleCentered(false);
-        Image profilePic = res.getImage("user-picture.jpg");
+        Image profilePic = res.getImage("bp.png");
         Image mask = res.getImage("round-mask.png");
-      // profilePic = profilePic.fill(mask.getWidth(), mask.getHeight());
+        profilePic = profilePic.fill(mask.getWidth(), mask.getHeight());
         Label profilePicLabel = new Label(profilePic, "ProfilePicTitle");
         profilePicLabel.setMask(mask.createMask());
 

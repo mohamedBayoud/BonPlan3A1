@@ -54,7 +54,7 @@ public class AffichageEvent {
     TextField description;
     Label descl;
     Database db;
-    String url = "http://localhost/symphonie/web/uploads";
+    String url = "http://localhost/BonPlan1/web/Uploads";
     EncodedImage enc;
     URLImage uRLImage;
     Button btnchercher, supprimer, Modifier, PartciperButton, AnnulerButton;
@@ -168,13 +168,13 @@ public class AffichageEvent {
                 //////------------Supprimer------------------
                 F3.add(supprimer);
                 F3.add(Modifier);
-
-                if (role.equals("bonplanneur")) {
-                    PartciperButton.setVisible(false);
-
-                } else {
+                if (role.equals("membre")) {
                     supprimer.setVisible(false);
                     Modifier.setVisible(false);
+                }
+                 if (role.equals("bonplaneur")) {
+                    PartciperButton.setVisible(false);
+                   
                 }
                 supprimer.addActionListener((e) -> {
                     SP.SupprimerEvnet(li.getIdEvent());
@@ -188,7 +188,7 @@ public class AffichageEvent {
                     if (c1 > 0) {
                         SP.participer(li.getIdEvent());
                         TwilioSms sms = new TwilioSms();
-                        sms.sendSms("Vous allez participer à cette Evenement  " + ev.getTitre() + ", Vous serez le bienvenu le " + ev.getDate1());
+                       // sms.sendSms("Vous allez participer à cette Evenement  " + ev.getTitre() + ", Vous serez le bienvenu le " + ev.getDate1());
                     } else {
                         System.out.println("errrrrrrrrrrrrrrrrrrr nnnnnnn");
                     }
@@ -247,7 +247,6 @@ public class AffichageEvent {
 
                 ///-----------Modifier-----------------
                 Modifier.addActionListener((e) -> {
-
                     /*ModifEvent m = new ModifEvent(li);
                     m.getF().show();*/
                     Form F4 = new Form(BoxLayout.y());
@@ -287,7 +286,6 @@ public class AffichageEvent {
                     String nbp = Integer.toString(ev.getNbPlace());
                     prix.setText(prx);
                     nbPlace.setText(nbp);
-//                    F4.add(imgV2);
                     F4.add(titre);
                     F4.add(description);
                     F4.add(lieu);
@@ -319,7 +317,7 @@ public class AffichageEvent {
 
                             Evenement t = new Evenement(descc, nbpp, tit, pri, lieu.getText(), ev.getImage(), type.getText(), dateE.getDate());
                             System.out.println(li.getIdEvent());
-                            if (val.isValid() && titre.getText().trim().length() > 0 || description.getText().trim().length() > 0 || prix.getText().trim().length() > 0 || type.getText().trim().length() > 0 || nbPlace.getText().trim().length() > 0) {
+                            if (val.isValid() && titre.getText().trim().length() > 0 || description.getText().trim().length() > 0 || prix.getText().trim().length() > 0 || nbPlace.getText().trim().length() > 0) {
                                 SP.ModifierEvent(li.getIdEvent(), t);
                             } else {
                                 Dialog.show("error", "Verifiez vos champs", "ok", null);
@@ -342,7 +340,7 @@ public class AffichageEvent {
             });
 
         }
-        if (role.equals("bonplanneur")) {
+        if (role.equals("bonplaneur")) {
             f.getToolbar().addCommandToLeftBar(" +", null, (e) -> {
                 EvenementGui h = new EvenementGui(role);
                 h.getF().show();
